@@ -2,6 +2,14 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="OpenNLP"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-tools/target/opennlp-tools-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-tools/target/opennlp-tools-1.5.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-tools/target/opennlp-tools-1.5.3-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-uima/target/opennlp-uima-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-uima/target/opennlp-uima-1.5.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-uima/target/opennlp-uima-1.5.3-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-maxent/target/opennlp-maxent-3.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-maxent/target/opennlp-maxent-3.0.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-maxent/target/opennlp-maxent-3.0.3-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
