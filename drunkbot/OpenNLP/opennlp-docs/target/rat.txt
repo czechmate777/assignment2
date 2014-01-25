@@ -1,0 +1,53 @@
+
+*****************************************************
+Summary
+-------
+Notes: 0
+Binaries: 0
+Archives: 0
+Standards: 17
+
+Apache Licensed: 17
+Generated Documents: 0
+
+JavaDocs are generated and so license header is optional
+Generated files do not required license headers
+
+0 Unknown Licenses
+
+*******************************
+
+Unapproved licenses:
+
+
+*******************************
+
+Archives:
+
+*****************************************************
+  Files with Apache License headers will be marked AL
+  Binary files (which do not require AL headers) will be marked B
+  Compressed archives will be marked A
+  Notices, licenses etc will be marked N
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/pom.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/chunker.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/coref.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/corpora.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/css/opennlp-docs.css
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/doccat.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/extension.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/introduction.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/machine-learning.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/namefinder.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/opennlp.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/parser.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/postagger.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/sentdetect.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/tokenizer.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/docbkx/uima-integration.xml
+  AL    C:/Users/Yarko/assignment2/drunkbot/OpenNLP/opennlp-docs/src/main/resources/xsl/html.xsl
+ 
+ *****************************************************
+ Printing headers for files without AL header...
+ 
+ 
