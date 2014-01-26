@@ -38,7 +38,7 @@ public class HelloWorld {
 //    }
  
 	String str = "The quick brown fox jumped over the lazy dog.";
-    InputStream is = new FileInputStream( "C:\\Users\\Yarko\\assignment2\\drunkbot\\data\\en-pos-maxent.bin" );
+    InputStream is = new FileInputStream( "en-pos-maxent.bin" );
     HelloWorld hw = new HelloWorld( is );
     is.close();
  
