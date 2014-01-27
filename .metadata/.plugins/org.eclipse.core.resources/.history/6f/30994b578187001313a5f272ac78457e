@@ -24,7 +24,7 @@ public class main {
 		
 		while (!input.equals("exit"))
 		{
-			//do stuff
+			System.out.println(dictionary.get("hi"));
 		}
 		//ask again/exit
 		

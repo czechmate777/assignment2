@@ -24,7 +24,7 @@ public class main {
 		
 		while (!input.equals("exit"))
 		{
-			//do stuff
+			System.out.println(dictionary.toString());
 		}
 		//ask again/exit
 		
@@ -46,7 +46,7 @@ public class main {
 			value = fin.nextLine();
 			fin.nextLine();
 			
-			dictionary.put(key.toLowerCase(), value.toLowerCase());
+			dictionary.put(key, value);
 		}
 		
 	}

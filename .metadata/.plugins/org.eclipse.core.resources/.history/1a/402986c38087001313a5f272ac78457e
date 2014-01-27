@@ -17,21 +17,23 @@ public class main {
 		//return output
 		//make dictionary of terms and update it
 		
-		DictSkipList<String, String> dictionary = new DictSkipList<String, String>();
+		Hashtable<String, String> dictionary = new Hashtable<String, String>();
 		
 		fillDictionary(dictionary);
 		
 		
-		while (!input.equals("exit"))
-		{
-			//do stuff
-		}
+//		while (!input.equals("exit"))
+//		{
+//			//parse input to add to dictionary
+//			
+//			//respond with value
+//		}
 		//ask again/exit
 		
 	}
 	
 	//fill dictionary initially with predefined values
-	public static void fillDictionary(DictSkipList<String, String> dictionary) throws FileNotFoundException
+	public static void fillDictionary(Hashtable<String, String> dictionary) throws FileNotFoundException
 	{
 		FileInputStream in = new FileInputStream("dictionary.txt");
 		Scanner fin = new Scanner(in);
@@ -46,7 +48,7 @@ public class main {
 			value = fin.nextLine();
 			fin.nextLine();
 			
-			dictionary.put(key.toLowerCase(), value.toLowerCase());
+			dictionary.put(key, value);
 		}
 		
 	}
