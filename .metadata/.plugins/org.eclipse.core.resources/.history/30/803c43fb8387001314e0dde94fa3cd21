@@ -35,7 +35,7 @@ public class main {
 		
 		while (!input.equals("exit"))
 		{
-			run(input);
+			//do stuff
 		}
 		//ask again/exit
 		
@@ -66,12 +66,11 @@ public class main {
 	 private static void setModel( POSModel m ) {
 		    model = m;
 	  }
-	  private static POSModel getModel() {
-		    return model;
+	  private POSModel getModel() {
+		    return this.model;
 	  }
 	  
-	  //from HelloWorld for reference
-	  public static void run( String sentence ) {
+	  public void run( String sentence ) {
 		    POSTaggerME tagger = new POSTaggerME( getModel() );
 		    String[] words = sentence.split( "\\s+" );
 		    String[] tags = tagger.tag( words );
