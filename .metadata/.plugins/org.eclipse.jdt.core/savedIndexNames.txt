@@ -23,4 +23,3 @@ INDEX VERSION 1.126+C:\Users\Yarko\assignment2\.metadata\.plugins\org.eclipse.jd
 3248747735.index
 3506609894.index
 2540681778.index
-4257325822.index
