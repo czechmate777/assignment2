@@ -37,7 +37,7 @@ public class HelloWorld {
 //      return;
 //    }
  
-	String str = "whose";
+	String str = "This is Yarko, the ruller of all bananas.";
     InputStream is = new FileInputStream( "en-pos-maxent.bin" );
     HelloWorld hw = new HelloWorld( is );
     is.close();
