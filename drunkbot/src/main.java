@@ -35,6 +35,7 @@ public class main {
 		
 		while (!input.equals("exit"))
 		{
+			input = scan.nextLine();
 			run(input);
 		}
 		//ask again/exit
