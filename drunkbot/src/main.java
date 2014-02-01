@@ -20,7 +20,7 @@ public class main {
 		setModel( new POSModel( is ) ); 
 		
 		//greet user
-		System.out.println("Heyyy, how you doin' ?");
+		System.out.println("Heyyy, how you doin'?");
 		
 		//get input
 		String input = scan.nextLine();
@@ -83,5 +83,10 @@ public class main {
 		    }
 	  }
 	  
+	  //generate chatbot response
+	  public static String response()
+	  {
+		  
+	  }
 
 }

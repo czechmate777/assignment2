@@ -3,8 +3,8 @@
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<item value="480,510" key="UserLibraryLoadSaveDialog.size"/>
 	<item value="C:\Users\Yarko\assignment2\drunkbot\OpenNLP\opennlp-maxent\target" key="org.eclipse.jdt.ui.lastextjar"/>
-	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
