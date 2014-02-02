@@ -31,7 +31,15 @@ Shayne
 - 
 
 Yarko
-- 
+- Implement data pulling from input
+
+--get natural language parser (OpenNLP)
+----Time Expected: 3 hours
+----Time Actual: 4 hours (need to install using Maven, took more time)
+
+--get noun and verb from input
+----Time Expected: 30 min
+----Time Actual: 1 hour (needed to work out Eclipse kinks)
 
 
 Gantt Chart
