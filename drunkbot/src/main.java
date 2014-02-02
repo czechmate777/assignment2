@@ -8,6 +8,13 @@ public class main {
 	
 	//parts of speech model
 	private static POSModel model;
+	
+	private static DictSkipList<String, String> dictionary;
+	
+	private DictSkipList<String, String> getDict()
+	{
+		return dictionary;
+	}
 
 	public static Scanner scan = new Scanner(System.in);
 
@@ -17,7 +24,7 @@ public class main {
 		setModel( new POSModel( is ) ); 
 		
 		//greet user
-		System.out.println("Heyyy, how you doin' ?");
+		System.out.println("Heyyy, how you doin'?");
 		
 		//get input
 		String input = scan.nextLine();
@@ -25,7 +32,7 @@ public class main {
 		//return output
 		//make dictionary of terms and update it
 		
-		DictSkipList<String, String> dictionary = new DictSkipList<String, String>();
+		dictionary = new DictSkipList<String, String>();
 		
 		fillDictionary(dictionary);
 		
@@ -33,10 +40,8 @@ public class main {
 		
 		while (!input.equals("exit"))
 		{
-			String t = sent.construct("hello", "bye");
-			System.out.println(t);
+			System.out.println(response(input) + "\n");
 			input = scan.nextLine();
-			run(input);
 		}
 		//ask again/exit
 		
@@ -83,5 +88,23 @@ public class main {
 		    }
 	  }
 	  
+	  //generate chatbot response
+	  public static String response(String input) throws InvalidFormatException, IOException
+	  {
+		  
+		  //check for dictionary, no punctuation
+		  if (dictionary.containsKey(input.toLowerCase()))
+		  {
+			  return dictionary.get(input.toLowerCase());
+		  }
+		  
+		  //generate verb/noun response
+		  InputStream is = new FileInputStream( "en-pos-maxent.bin" );
+		  inputParser parse = new inputParser(is);
+		  
+		  String[] verbNoun = parse.getVerbNoun(input);
+		  
+		  return "I also like to " + verbNoun[0]  + " " + verbNoun[1] + " when I drink.";
+	  }
 
 }
