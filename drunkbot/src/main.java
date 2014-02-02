@@ -1,11 +1,8 @@
-// main file
 import java.util.*;
 import java.io.*;
-
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.util.InvalidFormatException;
- 
 
 public class main {
 	
@@ -32,10 +29,12 @@ public class main {
 		
 		fillDictionary(dictionary);
 		
-		
+		sentenceConstruction sent = new sentenceConstruction();
 		
 		while (!input.equals("exit"))
 		{
+			String t = sent.construct("hello", "bye");
+			System.out.println(t);
 			input = scan.nextLine();
 			run(input);
 		}

@@ -1,7 +1,7 @@
 import java.util.*;
 public class sentenceConstruction {
 	
-	public String sentenceConstruction(String verb, String noun) {
+	public String construct(String verb, String noun) {
 		Random rand = new Random();
 		int weight = rand.nextInt(10);
 
