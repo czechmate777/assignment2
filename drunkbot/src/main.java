@@ -40,6 +40,7 @@ public class main {
 		fillDictionary(dictionary);
 		
 		
+		
 		while (!input.equals("exit"))
 		{
 			System.out.println(response(input) + "\n");
