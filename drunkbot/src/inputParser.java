@@ -24,6 +24,17 @@ public class inputParser
 	private POSModel getModel() {
 		return this.model;
 	}
+	
+	//return true if input has a verb and noun
+	public boolean hasVerbNoun(String s)
+	{
+		String[] ans = getVerbNoun(s);
+		if (ans[0].equals("") || ans[1].equals(""))
+		{
+			return false;
+		}
+		return true;
+	}
 	//get array of verb and noun. If cannot be found, return null element
 	public String[] getVerbNoun(String s)
 	{
