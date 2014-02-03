@@ -1,6 +1,15 @@
 hi
 yo
 
+hello
+yo
+
+how's it going?
+good, you?
+
+do you drink a lot?
+only shots.
+
 are you drunk?
 naaa
 

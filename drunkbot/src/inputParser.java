@@ -36,8 +36,10 @@ public class inputParser
 		return true;
 	}
 	//get array of verb and noun. If cannot be found, return null element
-	public String[] getVerbNoun(String s)
+	public String[] getVerbNoun(String str)
 	{
+		//remove punctuation
+		String s = removePunct(str);
 		POSTaggerME tagger = new POSTaggerME( getModel() );
 		String[] words = s.split( "\\s+" );
 		String[] tags = tagger.tag( words );
@@ -62,5 +64,13 @@ public class inputParser
 		return r;
 		
 	}
+	
+	//return input without punctuation
+	public String removePunct(String str)
+	{
+		return str.replaceAll("\\p{Punct}+", "");
+	}
+	
+	
 
 }
