@@ -4,6 +4,9 @@ yo
 hello
 yo
 
+how are you doing?
+good, you?
+
 how's it going?
 good, you?
 
@@ -43,7 +46,17 @@ just your drunk friend
 What are you?
 just your drunk friend
 
+I'm alright.
+That's nice but I don't really care.
 
+I'm fine.
+That's nice but I don't really care.
+
+I'm good.
+That's nice but I don't really care.
+
+Do you want a drink?
+Yes, anything strong.
 
 
 
