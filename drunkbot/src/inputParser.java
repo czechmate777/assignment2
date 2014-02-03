@@ -70,5 +70,7 @@ public class inputParser
 	{
 		return str.replaceAll("\\p{Punct}+", "");
 	}
+	
+	
 
 }
