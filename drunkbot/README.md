@@ -51,7 +51,7 @@ Limitations
 * cannot register colloquialisms
 
 
-Feature List:
+Feature List
 -------------
 * natural language processing
 * initial phrase-response dictionary
