@@ -36,8 +36,6 @@ public class main {
 		
 		fillDictionary(dictionary);
 		
-		sentenceConstruction sent = new sentenceConstruction();
-		
 		while (!input.equals("exit"))
 		{
 			System.out.println(response(input) + "\n");
@@ -101,10 +99,40 @@ public class main {
 		  //generate verb/noun response
 		  InputStream is = new FileInputStream( "en-pos-maxent.bin" );
 		  inputParser parse = new inputParser(is);
-		  
+
 		  String[] verbNoun = parse.getVerbNoun(input);
-		  
-		  return "I also like to " + verbNoun[0]  + " " + verbNoun[1] + " when I drink.";
+		  String s = construct(verbNoun[0], verbNoun[1], input);
+		  return s;
+		  //return "I also like to " + verbNoun[0]  + " " + verbNoun[1] + " when I drink.";
 	  }
+	  
+	  public static String construct(String verb, String noun, String input) {
+			Random rand = new Random();
+			int weight = rand.nextInt(60);
+			if(verb.isEmpty() && !noun.isEmpty()) 
+				return "blank";
+			if(!verb.isEmpty() && noun.isEmpty()) 
+				return "blank";
+			if(verb.isEmpty() && noun.isEmpty()) 
+				return "blank";
+			if(weight >= 1 && weight <= 10){ 
+				return "I also like to " + verb  + " " + noun + " when I drink.";
+			}
+			else if(weight > 10 && weight <= 20){ 
+				return "Oh yeah, absolutely. What do you think of " + noun + "?";
+			}
+			else if(weight > 20 && weight <= 30){ 
+				return "Such " + noun + ". Very " + verb + ". Wow.";
+			}
+			else if(weight > 30 && weight <= 40){ 
+				return "I also like to " + verb  + " " + noun + " when I drink.";	
+			}
+			else if(weight > 40 && weight <= 50){ 
+				return "I also like to " + verb  + " " + noun + " when I drink.";
+			}
+			else
+				return "I... what? What do you mean by " + verb + " and " + noun + "?";
+		
+		}
 
 }
