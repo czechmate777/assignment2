@@ -1,5 +1,4 @@
-DrunkBot
-===========
+![alt tag](https://github.com/yarko3/assignment2/blob/master/drunkbot/Logo_small.png)
 
 
 We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as well as learned response constructs. Natural language processing will be used to determine parts of speech from user input. 
