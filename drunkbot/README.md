@@ -10,10 +10,20 @@ Management is not required. The chatbot is a small project, and there is no need
 Phases of SDLC
 --------------
 * Construct feature set
-  * This is a sub-point
+  * Chatbot with drunk words
+  * Take in user input
+     * Find suitable library for retrieval verb and noun extractions
+  * Provide a drunken response
+
 * Discuss and agree on coding and design standards
+  * Discuss coding and syntactical standards 
+  * Agree on standard image sizes and resolution
+  * Decide on user interface
+
 * Divide features among programmers
+
 * Test each implemented feature thoroughly
+
 * Test complete bot
 
 WBS
