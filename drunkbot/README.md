@@ -21,11 +21,11 @@ WBS
 
 
 Adam
-*Logo
+* Logo
 
 
 Erin
-*Gantt Chart
+* Gantt Chart
 
 
 Ethan
