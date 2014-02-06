@@ -21,6 +21,9 @@ Phases of SDLC
   * Decide on user interface
 
 * Divide features among programmers
+  * Discuss the strengths of each member of the team
+  * Assign tasks to team members
+  * 
 
 * Test each implemented feature thoroughly
 
