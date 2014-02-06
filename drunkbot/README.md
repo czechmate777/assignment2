@@ -10,6 +10,7 @@ Management is not required. The chatbot is a small project, and there is no need
 Phases of SDLC
 --------------
 * Construct feature set
+  * This is a sub-point
 * Discuss and agree on coding and design standards
 * Divide features among programmers
 * Test each implemented feature thoroughly
