@@ -19,6 +19,9 @@ naaa
 how are you?
 smashed
 
+good, how are you?
+winning!
+
 good, you?
 Good. Wanna drink?
 
@@ -67,7 +70,9 @@ That's cool.
 Great
 That's cool.
 
+i don't even
+I'm a peacock, YOU GOTTA LET ME FLY!
 
-
-
+you are a peacock?
+No, you are a peacock
 
