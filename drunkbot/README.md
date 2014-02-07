@@ -47,11 +47,15 @@ Erin
 
 
 Ethan
-
+* Create chat environment
+   * Construct sentences based OpenNLP output
+   * Adapt to missing parts of speech
+      * Answers based on missing verbs or nouns
+   * Choosing best sentence structure to use
+* Add to key:value dictionary
 
 Shayne
 * Documentation
-
 
 Yarko
 * Implement data pulling from input
@@ -61,7 +65,7 @@ Yarko
 * get noun and verb from input
    * Time Expected: 30 min
    * Time Actual: 1 hour (needed to work out Eclipse kinks)
-
+* Create base dictionary of fixed input and answer pairs
 
 Gantt Chart
 -----------
