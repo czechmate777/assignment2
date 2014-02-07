@@ -99,6 +99,8 @@ Gantt Chart
 
 ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/ganttchart.png)
 
+The above chart summarizes the tasks completed over the course of the project time frame. It is noted that the sub groups show the dependences of related tasks.
+
 Limitations
 -----------
 * Cannot develop context-aware responses
