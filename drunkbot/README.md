@@ -113,15 +113,20 @@ Limitations
     Bot> I loooooove ARSTARDARDHQWDH.
 * Sometimes does not detect valid sentences
     User> That much I have gathered but could you give me the particulars of the beverages you are ingesting.
-    Bot> I... what? What do you mean by ingesting and beverages?
+    Bot> I... what? What do you mean by ingesting and beverages? 
+
+Meetings
+--------
+* January 27, 2014 - 1.5 hours
+* January 29, 2014 - 2 hours
+* January 31, 2014 - 1 hour
+* Feburary 1, 2014 - 2 hours
+* Feburary 6, 2014 - 1.5 hour
+* Feburary 7, 2014 - 1 hour
 
 Feature List
 -------------
 * Natural language processing
 * Initial phrase-response dictionary
 * Implement learned dictionary based on user input
-<<<<<<< HEAD
-* decide appropriate sentence structure for responses
-=======
 * Decide appropriate sentence structure for responses
->>>>>>> 51555c907e3216541ad0151fb9677fb83c7abdba
