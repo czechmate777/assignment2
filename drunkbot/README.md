@@ -34,20 +34,21 @@ WBS
 
 Adam
 * Logo
-* Testing and expanding functional chatbot
 
 
 Erin
 * Gantt Chart
-* Testing and expanding functional chatbot
 
 
 Ethan
-* Testing and expanding functional chatbot
 
 Shayne
 * Documentation
-* Testing and expanding functional chatbot
+   * Expected Time: 30 min
+   * Actual Time: 30 min
+* Creating a second, simpler bot
+   * Expected Time: 2 hours
+   * Actual Time: 2.5 hours
 
 Yarko
 * Implement data pulling from input
@@ -57,7 +58,8 @@ Yarko
 * Get noun and verb from input
    * Time Expected: 30 min
    * Time Actual: 1 hour (needed to work out Eclipse kinks)
-* Testing and expanding functional chatbot
+
+*All team members were involved in the testing and expansion of the functional bot
 
 
 Gantt Chart
