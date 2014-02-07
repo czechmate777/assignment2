@@ -51,11 +51,16 @@ Erin
 
 
 Ethan
+* Organize project, manage source code
+   * Time Expected: 2 hours
+   * Actual Time: 2 hours
 * Create chat environment
    * Construct sentences based OpenNLP output
    * Adapt to missing parts of speech
       * Answers based on missing verbs or nouns
    * Choosing best sentence structure to use
+   * Time expected: 3 hours
+   * Actual Time: 4 hours
 * Add to key:value dictionary
 
 Shayne
