@@ -110,4 +110,8 @@ Feature List
 * Natural language processing
 * Initial phrase-response dictionary
 * Implement learned dictionary based on user input
+<<<<<<< HEAD
 * decide appropriate sentence structure for responses
+=======
+* Decide appropriate sentence structure for responses
+>>>>>>> 51555c907e3216541ad0151fb9677fb83c7abdba
