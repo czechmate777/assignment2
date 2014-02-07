@@ -46,7 +46,7 @@ Shayne
 * Documentation
    * Expected Time: 30 min
    * Actual Time: 30 min
-* Creating a second, simpler bot
+* Creating a second, simpler bot (just in case)
    * Expected Time: 2 hours
    * Actual Time: 2.5 hours
 
