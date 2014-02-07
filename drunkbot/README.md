@@ -5,7 +5,7 @@ We have decided to implement a chatbot who is somewhat intoxicated but coherent 
 
 SDLC: Agile with Scrum
 -----------------------------
-![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/SCRUM-final.png)
+![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/SCRUM-Final-small.png)
 Management is not required. The chatbot is a small project, and there is no need for anyone to have a place at the table as a manager or PM. Additionally, there are many, mostly non-complex or trivial, features that can be quickly implemented. This can be accomplished quickly, and means that there is not a dependence on complex testing, and additionally the tasks can be completed by individuals working on their own. Most features can be completed and implemented independent of the groupm so a simple backlog can be created and members can draw new tasks from it as they complete tasks. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
 
 Phases of SDLC
