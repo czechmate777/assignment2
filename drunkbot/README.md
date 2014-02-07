@@ -105,6 +105,16 @@ Limitations
 -----------
 * Cannot develop context-aware responses
 * Cannot register colloquialisms
+* 
+
+Meetings
+--------
+* January 27, 2014 - 1.5 hours
+* January 29, 2014 - 2 hours
+* January 31, 2014 - 1 hour
+* Feburary 1, 2014 - 2 hours
+* Feburary 6, 2014 - 1.5 hour
+* Feburary 7, 2014 - 1 hour
 
 
 Feature List
