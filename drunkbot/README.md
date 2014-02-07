@@ -99,13 +99,13 @@ Gantt Chart
 
 Limitations
 -----------
-* cannot develop context-aware responses
-* cannot register colloquialisms
+* Cannot develop context-aware responses
+* Cannot register colloquialisms
 
 
 Feature List
 -------------
-* natural language processing
-* initial phrase-response dictionary
-* implement learned dictionary based on user input
-* decide appropriate sentence structure for responses
+* Natural language processing
+* Initial phrase-response dictionary
+* Implement learned dictionary based on user input
+* Decide appropriate sentence structure for responses
