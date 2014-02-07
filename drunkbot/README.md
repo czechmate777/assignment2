@@ -41,13 +41,23 @@ WBS
 
 Adam
 * Logo
+ * Time Expected: 1 hour
+ * Time Actual: 45 minutes
 * Documentation
+ * Time Expected: 2 hours
+ * Time Actual: 2 hours
 * Bottle of SCRUM
+ * Time Expected: 2 hour
+ * Time Actual: 3 hours
 
 
 Erin
 * Gantt Chart
+ * Time Expected:
+ * Time Actual:
 * Documentation
+ * Time Expected:
+ * Time Actual:
 
 
 Ethan
