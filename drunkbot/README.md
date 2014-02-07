@@ -1,11 +1,11 @@
 ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/Logo_small.png)
 
 
-We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as well as learned response constructs. Natural language processing will be used to determine parts of speech from user input. 
+We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will respond to the user based on both pre-programmed sentences, as well as dynamically generated sentences based off user input. A natural language processor will be used to determine parts of speech from user input. 
 
 SDLC: Agile with Scrum
 -----------------------------
-Management is not required. The chatbot is a small project, and there is no need for anyone to have a place at the table as a manager or PM. Additionally, there are many, mostly non-complex or trivial, features that can be quickly implemented. This can be accomplished quickly, and means that there is not a dependence on complex testing, and additionally the tasks can be completed by individuals working on their own. Most features can be completed and implemented independent of the groupm so a simple backlog can be created and members can draw new tasks from it as they complete tasks. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
+Management is not required. The chatbot is a small project, so there is no need to elect someone to a management position. Additionally, there are many simple features that can be quickly implemented, meaning that there is not a dependence on complex testing, and additionally the tasks can be completed by individuals working on their own. Because many of the tasks can be completed individually, a simple backlog can be created and members can draw new tasks from it as they complete their current objectives. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
 
 Phases of SDLC
 --------------
@@ -13,17 +13,16 @@ Phases of SDLC
   * Chatbot with drunk words
   * Take in user input
      * Find suitable library for retrieval verb and noun extractions
+     * Use the extracted words to formulate a response
   * Provide a drunken response
 
 * Discuss and agree on coding and design standards
   * Discuss coding and syntactical standards 
   * Agree on standard image sizes and resolution
-  * Decide on user interface
 
 * Divide features among programmers
   * Discuss the strengths of each member of the team
   * Assign tasks to team members
-  * 
 
 * Test each implemented feature thoroughly
 
@@ -35,26 +34,30 @@ WBS
 
 Adam
 * Logo
+* Testing and expanding functional chatbot
 
 
 Erin
 * Gantt Chart
+* Testing and expanding functional chatbot
 
 
 Ethan
-
+* Testing and expanding functional chatbot
 
 Shayne
-
+* Documentation
+* Testing and expanding functional chatbot
 
 Yarko
 * Implement data pulling from input
-* get natural language parser (OpenNLP)
+* Get natural language parser (OpenNLP)
    * Time Expected: 3 hours
    * Time Actual: 4 hours (need to install using Maven, took more time)
-* get noun and verb from input
+* Get noun and verb from input
    * Time Expected: 30 min
    * Time Actual: 1 hour (needed to work out Eclipse kinks)
+* Testing and expanding functional chatbot
 
 
 Gantt Chart
@@ -62,13 +65,14 @@ Gantt Chart
 
 Limitations
 -----------
-* cannot develop context-aware responses
-* cannot register colloquialisms
+* Cannot develop context-aware responses
+* Cannot register colloquialisms
+* Can get stuck in loops if user input is not varied
 
 
 Feature List
 -------------
-* natural language processing
-* initial phrase-response dictionary
-* implement learned dictionary based on user input
-* decide appropriate sentence structure for responses
+* Natural language processing
+* Initial phrase-response dictionary
+* Implement learned dictionary based on user input
+* Decide appropriate sentence structure for responses
