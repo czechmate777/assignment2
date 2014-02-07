@@ -1,14 +1,14 @@
 ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/Logo_small.png)
 
 
-We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as well as learned response constructs. Natural language processing will be used to determine parts of speech from user input. 
+ We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as dynamically generated responses based on user input through the use of natural language processing.
 
 SDLC: Agile with Scrum
 -----------------------------
 ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/SCRUM-Final-small.png)
 
 
-Management is not required. The chatbot is a small project, and there is no need for anyone to have a place at the table as a manager or PM. Additionally, there are many, mostly non-complex or trivial, features that can be quickly implemented. This can be accomplished quickly, and means that there is not a dependence on complex testing, and additionally the tasks can be completed by individuals working on their own. Most features can be completed and implemented independent of the group so a simple backlog can be created and members can draw new tasks from it as they complete tasks. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
+ Management is not required. Because the bot is not a large project there is no need to elect someone to a manager type position. Additionally, there are many trivial features that can be quickly implemented by individual team members. This means that there is not a dependence on complex testing. As a result, a simple backlog can be created and members can draw new tasks from it as they complete their current objectives. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
 
 Phases of SDLC
 --------------
@@ -16,6 +16,7 @@ Phases of SDLC
   * Chatbot with drunk words
   * Take in user input
      * Find suitable library for retrieval verb and noun extractions
+     * Use the extracted words to formulate a response
   * Provide a drunken response
 
 * Discuss and agree on coding and design standards
@@ -75,8 +76,11 @@ Ethan
 
 Shayne
 * Documentation
- * Time Expected: 1 hour
- * Time Actual: 2 hours
+ * Time Expected: 30 min
+ * Actual Time : 1 hour
+* Coding possible extra features for the bot
+ * Time Expected: 2 hours
+ * Actual Time: 2.5 hours
 
 Yarko
 * Implement data pulling from input
@@ -87,6 +91,8 @@ Yarko
    * Time Expected: 30 min
    * Time Actual: 1 hour (needed to work out Eclipse kinks)
 * Create base dictionary of fixed input and answer pairs
+
+* All team members were involved in the testing and expansion of the functional bot
 
 Gantt Chart
 -----------
