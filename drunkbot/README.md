@@ -44,8 +44,8 @@ Adam
  * Time Expected: 1 hour
  * Time Actual: 45 minutes
 * Documentation
- * Time Expected: 2 hours
- * Time Actual: 2 hours
+ * Time Expected: 1 hours
+ * Time Actual: 1 hours
 * Bottle of SCRUM
  * Time Expected: 2 hour
  * Time Actual: 3 hours
@@ -53,11 +53,11 @@ Adam
 
 Erin
 * Gantt Chart
- * Time Expected:
- * Time Actual:
+ * Time Expected: 30 minutes
+ * Time Actual: 2 hours (confusing)
 * Documentation
- * Time Expected:
- * Time Actual:
+ * Time Expected: 1 hour
+ * Time Actual: 1.5 hours
 
 
 Ethan
@@ -75,6 +75,8 @@ Ethan
 
 Shayne
 * Documentation
+ * Time Expected: 1 hour
+ * Time Actual: 2 hours
 
 Yarko
 * Implement data pulling from input
