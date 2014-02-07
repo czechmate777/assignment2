@@ -105,16 +105,17 @@ Limitations
 -----------
 * Cannot develop context-aware responses
 * Cannot register colloquialisms
-    User> I am != not a computer
-    Bot> I also like to am computer when I drink.
+ * User> I am != not a computer
+ * Bot> I also like to am computer when I drink.
 * Cannot identify if real words are used
-    Bot> Heyyy, how you doin'?
-    User> ARSTARDARDHQWDH#
-    Bot> I loooooove ARSTARDARDHQWDH.
+ * Bot> Heyyy, how you doin'?
+ * User> ARSTARDARDHQWDH#
+ * Bot> I loooooove ARSTARDARDHQWDH.
+    
 * Sometimes does not detect valid sentences
-    User> That much I have gathered but could you give me the particulars of the beverages you are ingesting.
-    Bot> I... what? What do you mean by ingesting and beverages? 
-
+ * User> That much I have gathered but could you give me the particulars of the beverages you are ingesting.
+ * Bot> I... what? What do you mean by ingesting and beverages? 
+    
 Meetings
 --------
 * January 27, 2014 - 1.5 hours
