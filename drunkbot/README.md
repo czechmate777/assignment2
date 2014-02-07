@@ -84,10 +84,10 @@ Shayne
 
 Yarko
 * Implement data pulling from input
-* get natural language parser (OpenNLP)
+* Get natural language parser (OpenNLP)
    * Time Expected: 3 hours
    * Time Actual: 4 hours (need to install using Maven, took more time)
-* get noun and verb from input
+* Get noun and verb from input
    * Time Expected: 30 min
    * Time Actual: 1 hour (needed to work out Eclipse kinks)
 * Create base dictionary of fixed input and answer pairs
@@ -97,15 +97,17 @@ Yarko
 Gantt Chart
 -----------
 
+![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/ganttchart.png)
+
 Limitations
 -----------
-* cannot develop context-aware responses
-* cannot register colloquialisms
+* Cannot develop context-aware responses
+* Cannot register colloquialisms
 
 
 Feature List
 -------------
-* natural language processing
-* initial phrase-response dictionary
-* implement learned dictionary based on user input
+* Natural language processing
+* Initial phrase-response dictionary
+* Implement learned dictionary based on user input
 * decide appropriate sentence structure for responses
