@@ -38,16 +38,19 @@ WBS
 
 Adam
 * Logo
+* Documentation
 
 
 Erin
 * Gantt Chart
+* Documentation
 
 
 Ethan
 
 
 Shayne
+* Documentation
 
 
 Yarko
