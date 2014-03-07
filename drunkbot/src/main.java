@@ -147,7 +147,15 @@ public class main {
 	  public static String noVerb(String noun, String input) {
 		  Random rand = new Random();
 		  int num = rand.nextInt(2);
-		  return "I loooooove " + noun + ". I also love this scotch! Scotch is good.";
+		  if (input.equals("lol")){
+			  return "Who you laghing at, punk?";
+		  }
+		  if (0==num) {
+			  return noun+"? Gross. I preffer Scotch.";
+		  }
+		  else {
+			  return "I loooooove " + noun + ". I also love this scotch! Scotch is good.";
+		  }
 	  }
 	  public static String noNoun(String verb, String input) {
 		  Random rand = new Random();
@@ -158,6 +166,8 @@ public class main {
 			  return "Of course I am into " + verb + ".";
 	  }
 	  public static String noNounVerb(String input) {
+		  if(input.substring(input.length()-1).equals("?"))
+				return "Of course not!";
 		  Random rand = new Random();
 		  int num = rand.nextInt(2);
 		  if(0 == num) 
