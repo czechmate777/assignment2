@@ -50,6 +50,9 @@ Adam
 * Bottle of SCRUM
  * Time Expected: 2 hour
  * Time Actual: 3 hours
+* Sockets client functionality
+ * Time Expected: 3 hours
+ * Time Expected: 4 hours
 
 
 Erin
