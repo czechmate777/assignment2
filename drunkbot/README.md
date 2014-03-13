@@ -155,3 +155,22 @@ SERVER: Yeah, I can go think with you.
 CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
 </code></pre>
 
+* More topics
+ * There are now more things to talk about with DrunkBot. Not only does DrunkBot have drunkenly responses to many witty questions, but likes to tell the user about his favorite movies and actors. Manny canned responses were added to the dictionary about these topics, aswell as name and age responses.
+ Sample Topic:
+<pre><code>bot> Heyyy, how you doin'?
+user> good, you?
+bot> good. wanna drink?
+user> yes
+bot> me too.
+user> What's your favorite movie?
+bot> you know that one with the girl? she has the hair and that walk.. yeah.
+user> no
+bot> then you should buy me a drink!
+user> okay
+bot> fine.
+user> Who's your favorite actress?
+bot> i like judi dench. it's too bad she had to die in james bond.
+user> Who's your favorite actor?
+bot> deffffinitely jesus. oh wait, i'm thinking about something else...
+</code></pre>
