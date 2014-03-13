@@ -1,6 +1,8 @@
 ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/Logo_small.png)
 
 
+Summary
+-------
  We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as dynamically generated responses based on user input through the use of natural language processing.
 
 SDLC: Agile with Scrum
@@ -134,3 +136,22 @@ Feature List
 * Initial phrase-response dictionary
 * Implement learned dictionary based on user input
 * Decide appropriate sentence structure for responses
+
+
+Assignment 3 updates:
+---------------------
+
+* Sockets
+
+ * Sockets were implemented to allow DrunkBot to talk to another DrunkBot, or any other bot using the same system. A simple IP-based system was implemented to allow the user of the client side to type in the address of the server. Output and input is passed as objects, as this proved to be the most efficient solution.
+ Sample Output:
+<pre><code>Act as client using sockets?
+yes
+Please enter server IP address: 206.87.12.13
+CLIENT: Heyyy, how you doin'?
+SERVER: Yeah, I can go doin with you.
+CLIENT: Oh yeah, absolutely. What do you think of Yeah?
+SERVER: Yeah, I can go think with you.
+CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
+</code></pre>
+
