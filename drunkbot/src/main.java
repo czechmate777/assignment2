@@ -24,7 +24,7 @@ public class main {
 
 		InputStream is = new FileInputStream( "en-pos-maxent.bin" );
 		setModel( new POSModel( is ) ); 
-		System.out.println("Act as client using sockets?");
+		System.out.println("*Act as client using sockets? <yes/no> *");
 		
 		soc = scan.nextLine().toLowerCase().equals("yes");
 		if(soc) {
@@ -35,7 +35,7 @@ public class main {
 			Socket socket = null;
 			ObjectOutputStream oos = null;
 			ObjectInputStream ois = null;
-
+			System.out.println("Trying to connect to server...");
 			//establish socket connection to server
 			socket = new Socket(host.getHostName(), 2014);
 
@@ -46,7 +46,7 @@ public class main {
 			//read the server response message
 			ois = new ObjectInputStream(socket.getInputStream());
 			//greet client
-
+			System.out.println("-----------------------------------------");
 			String greeting = "Heyyy, how you doin'?";
 			oos.writeObject(greeting);
 			System.out.println("CLIENT: " + greeting);
@@ -170,7 +170,7 @@ public class main {
 		int weight = rand.nextInt((weight_max - weight_min) + 1) + weight_min;
 		int div = rand.nextInt((div_max - div_min) + 1) + div_min;
 		int modulus = weight % div;
-
+		int num = rand.nextInt(8);
 		if(verb.isEmpty() && !noun.isEmpty()) 
 			return noVerb(noun, input);
 		if(!verb.isEmpty() && noun.isEmpty()) 
@@ -180,25 +180,25 @@ public class main {
 
 		if(input.substring(input.length()-1).equals("?") && (modulus % 2) == 0)
 			return "Who are you, comrade question?";
-		else if(1 == modulus){ 
+		else if(1 == num){ 
 			return "I also like to " + verb  + " " + noun + " when I drink.";
 		}
-		else if(2 == modulus){ 
+		else if(2 == num){ 
 			return "Oh yeah, absolutely. What do you think of " + noun + "?";
 		}
-		else if(3 == modulus){ 
+		else if(3 == num){ 
 			return "Such " + noun + ". Very " + verb + ". Wow.";
 		}
-		else if(4 == modulus){ 
+		else if(4 == num){ 
 			return "Maybe next time I'll " + verb + " your mom.... hue hue hue hueeeeeeee.";	
 		}
-		else if(5 == modulus){ 
+		else if(5 == num){ 
 			return "HA! YOU ARE A FUNNY BUGGER AREN'T YOU! HA HA HA HA";
 		}
-		else if(6 == modulus){ 
+		else if(6 == num){ 
 			return "*blank stare*";
 		}
-		else if(7 == modulus){ 
+		else if(7 == num){ 
 			return "Whaaa, what? You talking to me?";
 		}
 		else
@@ -221,13 +221,23 @@ public class main {
 	}
 	public static String noNoun(String verb, String input) {
 		Random rand = new Random();
-		int num = rand.nextInt(3);
+		int num = rand.nextInt(8);
 		if(0 == num)
 			return "Who are we talking about, you?";
 		else if(1 == num)
 			return "Of course I am into " + verb + ".";
-		else 
+		else if(2 == num)
 			return "Computers don't often " + verb + ", do they?";
+		else if(3 == num)
+			return "I don't really "+ verb +" anymore... Sorry";
+		else if(4 == num)
+			return "OMG! "+ verb + " is something I want to get into!";
+		else if(5 == num)
+			return "Well fine then.";
+		else if(6 == num)
+			return "Get a life, man";
+		else
+			return "You really need to try "+ verb+". It goes great with scotch.";
 	}
 	public static String noNounVerb(String input) {
 		if(input.substring(input.length()-1).equals("?"))
