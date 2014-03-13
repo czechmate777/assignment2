@@ -113,8 +113,7 @@ public class main {
 	}
 
 	//fill dictionary initially with predefined values
-	public static void fillDictionary(DictSkipList<String, String> dictionary) throws FileNotFoundException
-	{
+	public static void fillDictionary(DictSkipList<String, String> dictionary) throws FileNotFoundException {
 		FileInputStream in = new FileInputStream("dictionary.txt");
 		Scanner fin = new Scanner(in);
 
@@ -142,8 +141,7 @@ public class main {
 	}
 
 	//generate chatbot response
-	public static String response(String input) throws InvalidFormatException, IOException
-	{
+	public static String response(String input) throws InvalidFormatException, IOException {
 
 		//check for dictionary, no punctuation
 		if (dictionary.containsKey(input.toLowerCase()))
