@@ -242,11 +242,15 @@ public class main {
 		if(input.substring(input.length()-1).equals("?"))
 			return "Of course not!";
 		Random rand = new Random();
-		int num = rand.nextInt(2);
+		int num = rand.nextInt(4);
 		if(0 == num) 
 			return "I... what? What do you mean by that?";
-		else 
+		if(1==num)
 			return "You aren't making any sense, and I have nooooooo idea what you are saying.";
+		if(2==num)
+			return "So.. do you have any plans for the weekend?";
+		else
+			return "I could really use another drink.. or two.";
 	}
 
 }
