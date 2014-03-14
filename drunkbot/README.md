@@ -4,6 +4,8 @@
 Summary
 -------
  We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as dynamically generated responses based on user input through the use of natural language processing.
+ 
+ The latest updates are listed at the end of this readme document.
 
 SDLC: Agile with Scrum
 -----------------------------
@@ -47,14 +49,20 @@ Adam
  * Time Expected: 1 hour
  * Time Actual: 45 minutes
 * Documentation
- * Time Expected: 1 hours
- * Time Actual: 1 hours
+ * Time Expected: 2 hours
+ * Time Actual: 3 hours
 * Bottle of SCRUM
- * Time Expected: 2 hour
+ * Time Expected: 2 hours
  * Time Actual: 3 hours
 * Sockets client functionality
  * Time Expected: 3 hours
- * Time Expected: 4 hours
+ * Time Actual: 4 hours
+* POS
+ * Time Expected: 3 hours
+ * Time Actual: 3 hours
+* DFDs
+ * Time Expected: 1-2 hours
+ * Time Actual: 2 hours
 
 
 Erin
@@ -141,21 +149,7 @@ Feature List
 Assignment 3 updates:
 ---------------------
 
-* Sockets
-
- * Sockets were implemented to allow DrunkBot to talk to another DrunkBot, or any other bot using the same system. A simple IP-based system was implemented to allow the user of the client side to type in the address of the server. Output and input is passed as objects, as this proved to be the most efficient solution.
- Sample Output:
-<pre><code>Act as client using sockets?
-yes
-Please enter server IP address: 206.87.12.13
-CLIENT: Heyyy, how you doin'?
-SERVER: Yeah, I can go doin with you.
-CLIENT: Oh yeah, absolutely. What do you think of Yeah?
-SERVER: Yeah, I can go think with you.
-CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
-</code></pre>
-
-* More topics
+* More topics (2 points)
  * There are now more things to talk about with DrunkBot. Not only does DrunkBot have drunkenly responses to many witty questions, but likes to tell the user about his favorite movies and actors. Manny canned responses were added to the dictionary about these topics, aswell as name and age responses.
  Sample Topic:
 <pre><code>bot> Heyyy, how you doin'?
@@ -173,4 +167,42 @@ user> Who's your favorite actress?
 bot> i like judi dench. it's too bad she had to die in james bond.
 user> Who's your favorite actor?
 bot> deffffinitely jesus. oh wait, i'm thinking about something else...
+</code></pre>
+
+* Reasonable Responses (3 points)
+ * When a user inputs a phrase that is not in the dictionary of pre-made responses, the drunk bot is able to generate a response based on a simple verb and noun tagging system. DrunkBot will try to stay coherent to the topic the user initiates by using a noun and verb pulled from the input. This can also produce some very humerous (and drunkenly) responses, adding to the effect of a drunka nd disorderly computer.
+ Example generated responses:
+<pre><code>user> So, what did you do this weekend?
+bot> Who are you, comrade question?
+user> Sorry, just making conversation.
+bot> Such conversation. Very making. Wow.
+user> If you say so.
+bot> Well fine then.
+user> Someone is feeling grumpy...
+bot> I also like to feeling Someone when I drink.
+user> Not what I meant!
+bot> Computers don't often meant, do they?
+user> I guess not.
+bot> Who are we talking about, you?
+user> no.
+bot> So.. do you have any plans for the weekend?
+user> Yeah! I wanted to go biking
+bot> I also like to go biking when I drink.
+</code></pre>
+There are many other responses that DrunkBot can easily peice together, which results in fluid, drunk conversation.
+
+* POS tagging - Stanford toolkit (10 points)
+
+
+* Sockets (15 points)
+ * Sockets were implemented to allow DrunkBot to talk to another DrunkBot, or any other bot using the same system. A simple IP-based system was implemented to allow the user of the client side to type in the address of the server. Output and input is passed as objects, as this proved to be the most efficient solution.
+ Sample Output:
+<pre><code>Act as client using sockets?
+yes
+Please enter server IP address: 206.87.12.13
+CLIENT: Heyyy, how you doin'?
+SERVER: Yeah, I can go doin with you.
+CLIENT: Oh yeah, absolutely. What do you think of Yeah?
+SERVER: Yeah, I can go think with you.
+CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
 </code></pre>
