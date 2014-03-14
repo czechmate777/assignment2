@@ -9,7 +9,7 @@ Summary
 
 SDLC: Agile with Scrum
 -----------------------------
-![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/SCRUM-Final-small.png)
+![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/SCRUM-Final-small.png)
 
 
  Management is not required. Because the bot is not a large project there is no need to elect someone to a manager type position. Additionally, there are many trivial features that can be quickly implemented by individual team members. This means that there is not a dependence on complex testing. As a result, a simple backlog can be created and members can draw new tasks from it as they complete their current objectives. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
@@ -110,7 +110,7 @@ Yarko
 Gantt Chart
 -----------
 
-![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/ganttchart.png)
+![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/ganttchart.png)
 
 The above chart summarizes the tasks completed over the course of the project time frame. It is noted that the sub groups show the dependences of related tasks.
 
@@ -149,8 +149,8 @@ Feature List
 Assignment 3 updates:
 ---------------------
 * Additions
- * More topics (2 points)
-  * There are now more things to talk about with DrunkBot. Not only does DrunkBot have drunkenly responses to many witty questions, but likes to tell the user about his favorite movies and actors. Manny canned responses were added to the dictionary about these topics, aswell as name and age responses.
+ * **More topics (2 points)**<br>
+  There are now more things to talk about with DrunkBot. Not only does DrunkBot have drunkenly responses to many witty questions, but likes to tell the user about his favorite movies and actors. Manny canned responses were added to the dictionary about these topics, aswell as name and age responses.
  Sample Topic:
 <pre><code>bot> Heyyy, how you doin'?
 user> good, you?
@@ -169,8 +169,8 @@ user> Who's your favorite actor?
 bot> deffffinitely jesus. oh wait, i'm thinking about something else...
 </code></pre>
 
- * Reasonable Responses (3 points)
-  * When a user inputs a phrase that is not in the dictionary of pre-made responses, the drunk bot is able to generate a response based on a simple verb and noun tagging system. DrunkBot will try to stay coherent to the topic the user initiates by using a noun and verb pulled from the input. This can also produce some very humerous (and drunkenly) responses, adding to the effect of a drunka nd disorderly computer.
+ * **Reasonable Responses (3 points)**<br>
+  When a user inputs a phrase that is not in the dictionary of pre-made responses, the drunk bot is able to generate a response based on a simple verb and noun tagging system. DrunkBot will try to stay coherent to the topic the user initiates by using a noun and verb pulled from the input. This can also produce some very humerous (and drunkenly) responses, adding to the effect of a drunka nd disorderly computer.
  Example generated responses:
 <pre><code>user> So, what did you do this weekend?
 bot> Who are you, comrade question?
@@ -191,8 +191,8 @@ bot> I also like to go biking when I drink.
 </code></pre>
 There are many other responses that DrunkBot can easily peice together, which results in fluid, drunk conversation.
 
- * POS tagging - Stanford toolkit (10 points)
-  * Parts of speach tagging was implemented using the Stanford toolkit, available here: http://nlp.stanford.edu/software/tagger.shtml. This allows DrunkBot to identify and use different parts of speach from the user's input. More specifically, DrunkBot pulls a verb and noun from the user's input and based on these will respond accordingly. Though the correct parts extracted from the input phrase, DrunkBot does not conjugate the verb to fit correctly into the response sentence. This can result in some interesting results, but more often than not just sounds drunkenly.
+ * **POS tagging - Stanford toolkit (10 points)**<br>
+  Parts of speach tagging was implemented using the Stanford toolkit, available here: http://nlp.stanford.edu/software/tagger.shtml. This allows DrunkBot to identify and use different parts of speach from the user's input. More specifically, DrunkBot pulls a verb and noun from the user's input and based on these will respond accordingly. Though the correct parts extracted from the input phrase, DrunkBot does not conjugate the verb to fit correctly into the response sentence. This can result in some interesting results, but more often than not just sounds drunkenly.
  Tagging Sample with relevant words that are carried over to the response in **bold**:
 <pre><code>input   > I like **jumping** around often.
 response> I loooooove **jumping**. I also love this scotch! Scotch is good.<br/>
@@ -208,8 +208,8 @@ input   > Maybe we should **go** somewhere else
 response> You really need to try **go**. It goes great with scotch.
 </code></pre>
 
- * Sockets (15 points)
-  * Sockets were implemented to allow DrunkBot to talk to another DrunkBot, or any other bot using the same system. A simple IP-based system was implemented to allow the user of the client side to type in the address of the server. Output and input is passed as objects, as this proved to be the most efficient solution.
+ * **Sockets (15 points)**<br>
+  Sockets were implemented to allow DrunkBot to talk to another DrunkBot, or any other bot using the same system. A simple IP-based system was implemented to allow the user of the client side to type in the address of the server. Output and input is passed as objects, as this proved to be the most efficient solution.
  Sample Output:
 <pre><code>Act as client using sockets?
 yes
@@ -222,8 +222,8 @@ CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
 </code></pre>
 * Data Flow Diagrams
  * Level 0:
- ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/Level0.png)
+ ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/Level0.png)
  This is a basic visualization of the dataflow to and from DrunkBot. The user can interact with the console which then interfaces with the bot. Drunkbot can also talk to another chatbot on an external server. It will also refference the dictionary of canned responses when necessary.
  * Level 1:
- ![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/Level1.png)
+ ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/Level1.png)
  The more detailed level 1 dataflow above shows the inner workings of Drunkbot. The user can enter input into the console which will then be read by the bot. Alternatively, input in the form of objects can be accepted from a server bot. The input is then checked against the canned responses. These are pulled from the dictionary file, and if the string is matched up the coresponding response will be sent to the console (and the server if need be). If no canned response exists, the input is passed into the parts of speach tagger. There, the different parts of speach are tagged and sent off to be checked for a question. A sentence is then chosen based on its verb and noun status (if they exist within the input) and weather it is a question. The response is constructed and then sent off to the console (and the server via socket if need be) in the form of a string. While this process can be rather confusing at first, it provides a great modular system into which new peices can be added.
