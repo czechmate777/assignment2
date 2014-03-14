@@ -5,7 +5,7 @@ Summary
 -------
  We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as dynamically generated responses based on user input through the use of natural language processing.
  
- The latest updates are listed at the end of this readme document: <a href="https://github.com/czechmate777/assignment3/edit/master/drunkbot/README.md#assignment-3-updates">Assignment 3</a>
+ The latest updates are listed at the end of this readme document: <a href="https://github.com/czechmate777/assignment3/blob/master/drunkbot/README.md#assignment-3-updates">Assignment 3</a>
 
 SDLC: Agile with Scrum
 -----------------------------
