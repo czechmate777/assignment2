@@ -5,13 +5,10 @@ Summary
 -------
  We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as dynamically generated responses based on user input through the use of natural language processing.
  
- The latest updates are listed at the end of this readme document.
+ The latest updates are listed at the end of this readme document: <a href="https://github.com/czechmate777/assignment3/edit/master/drunkbot/README.md#assignment-3-updates">Assignment 3</a>
 
 SDLC: Agile with Scrum
 -----------------------------
-![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/SCRUM-Final-small.png)
-
-
  Management is not required. Because the bot is not a large project there is no need to elect someone to a manager type position. Additionally, there are many trivial features that can be quickly implemented by individual team members. This means that there is not a dependence on complex testing. As a result, a simple backlog can be created and members can draw new tasks from it as they complete their current objectives. Work in groups is unnecessary due to the size of team and project, and communication outside of the programming process is all that is necessary.
 
 Phases of SDLC
@@ -150,7 +147,7 @@ Assignment 3 updates:
 ---------------------
 * Additions
  * **More topics (2 points)**<br>
-  There are now more things to talk about with DrunkBot. Not only does DrunkBot have drunkenly responses to many witty questions, but likes to tell the user about his favorite movies and actors. Manny canned responses were added to the dictionary about these topics, aswell as name and age responses.
+  There are now more things to talk about with DrunkBot. Not only does DrunkBot have drunkenly responses to many witty questions, but he likes to tell the user about his favorite movies and actors. Manny canned responses were added to the dictionary about these topics, as well as name and age responses.
  Sample Topic:
 <pre><code>bot> Heyyy, how you doin'?
 user> good, you?
@@ -170,7 +167,7 @@ bot> deffffinitely jesus. oh wait, i'm thinking about something else...
 </code></pre>
 
  * **Reasonable Responses (3 points)**<br>
-  When a user inputs a phrase that is not in the dictionary of pre-made responses, the drunk bot is able to generate a response based on a simple verb and noun tagging system. DrunkBot will try to stay coherent to the topic the user initiates by using a noun and verb pulled from the input. This can also produce some very humerous (and drunkenly) responses, adding to the effect of a drunka nd disorderly computer.
+  When a user inputs a phrase that is not in the dictionary of pre-made responses, the drunk bot is able to generate a response based on a simple verb and noun tagging system. DrunkBot will try to stay coherent to the topic the user initiates by using a noun and verb pulled from the input. This can also produce some very humorous (and drunkenly) responses, adding to the effect of a drunk and disorderly computer.
  Example generated responses:
 <pre><code>user> So, what did you do this weekend?
 bot> Who are you, comrade question?
@@ -192,7 +189,7 @@ bot> I also like to go biking when I drink.
 There are many other responses that DrunkBot can easily peice together, which results in fluid, drunk conversation.
 
  * **POS tagging - Stanford toolkit (10 points)**<br>
-  Parts of speach tagging was implemented using the Stanford toolkit, available here: http://nlp.stanford.edu/software/tagger.shtml. This allows DrunkBot to identify and use different parts of speach from the user's input. More specifically, DrunkBot pulls a verb and noun from the user's input and based on these will respond accordingly. Though the correct parts extracted from the input phrase, DrunkBot does not conjugate the verb to fit correctly into the response sentence. This can result in some interesting results, but more often than not just sounds drunkenly.
+  Parts of speech tagging was implemented using the Stanford toolkit, available here: http://nlp.stanford.edu/software/tagger.shtml. This allows DrunkBot to identify and use different parts of speech from the user's input. More specifically, DrunkBot pulls a verb and noun from the user's input and based on these will respond accordingly. Though the correct parts extracted from the input phrase, DrunkBot does not conjugate the verb to fit correctly into the response sentence. This can result in some interesting results, but more often than not just sounds drunkenly.
  Tagging Sample with relevant words that are carried over to the response in **bold**:
 <pre><code>input   > I like **jumping** around often.
 response> I loooooove **jumping**. I also love this scotch! Scotch is good.<br/>
@@ -223,17 +220,17 @@ CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
 * Data Flow Diagrams
  * Level 0:
  ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/Level0.png)
- This is a basic visualization of the dataflow to and from DrunkBot. The user can interact with the console which then interfaces with the bot. Drunkbot can also talk to another chatbot on an external server. It will also refference the dictionary of canned responses when necessary.
+ This is a basic visualization of the data flow to and from DrunkBot. The user can interact with the console which then interfaces with the bot. Drunkbot can also talk to another chatbot on an external server. It will also reference the dictionary of canned responses when necessary.
  * Level 1:
  ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/Level1.png)
- The more detailed level 1 dataflow above shows the inner workings of Drunkbot. The user can enter input into the console which will then be read by the bot. Alternatively, input in the form of objects can be accepted from a server bot. The input is then checked against the canned responses. These are pulled from the dictionary file, and if the string is matched up the coresponding response will be sent to the console (and the server if need be). If no canned response exists, the input is passed into the parts of speach tagger. There, the different parts of speach are tagged and sent off to be checked for a question. A sentence is then chosen based on its verb and noun status (if they exist within the input) and weather it is a question. The response is constructed and then sent off to the console (and the server via socket if need be) in the form of a string. While this process can be rather confusing at first, it provides a great modular system into which new peices can be added.
+ The more detailed level 1 data flow above shows the inner workings of Drunkbot. The user can enter input into the console which will then be read by the bot. Alternatively, input in the form of objects can be accepted from a server bot. The input is then checked against the canned responses. These are pulled from the dictionary file, and if the string is matched up the corresponding response will be sent to the console (and the server if need be). If no canned response exists, the input is passed into the parts of speech tagger. There, the different parts of speech are tagged and sent off to be checked for a question. A sentence is then chosen based on its verb and noun status (if they exist within the input) and weather it is a question. The response is constructed and then sent off to the console (and the server via socket if need be) in the form of a string. While this process can be rather confusing at first, it provides a great modular system into which new pieces can be added.
 
 * GitHub graphs<br>Commits:
   ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/commits.png)
   As the assignment 3 additions have been an individual exercise, committing was not as frequent as when working in a group. Many of the commits were made during the final documentation stage to GitHub, as an internal versioning system was used for different software features.
   <br>Punchcard:
   ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/punchcard.png)
-  This graph provides a good overview of what times commits were made. Most were made during breaks between or after classes. For example, on friday at around 1PM, sockets were were being tested with another classmate and the coresponding documentation was committed.
+  This graph provides a good overview of what times commits were made. Most were made during breaks between or after classes. For example, on friday at around 1PM, sockets were were being tested with another classmate and the corresponding documentation was committed.
 
 * Sample conversation:
 <pre><code>Heyyy, how you doin'?
@@ -309,4 +306,32 @@ Finally.
 Goodbye.<br>
 *Falls off chair*
 </code></pre>
-  
+
+* Shortcomings and limitations
+ * Inability to detect repetition<br>
+ DrunkBot is unable to detect a repeated input by the user, which can often create weird conversation:
+<pre><code>This is a test
+HA! YOU ARE A FUNNY BUGGER AREN'T YOU! HA HA HA HA<br>
+This is a test
+I also like to is test when I drink.<br>
+This is a test
+Whaaa, what? You talking to me?<br>
+This is a test
+*blank stare*<br>
+This is a test
+Oh yeah, absolutely. What do you think of test?
+</code></pre>
+ * Cannot discern words from gibberish<br>
+ DrunkBot does not realize when the user types in nonsense, and pretends to talk about it, resulting in strange responses. Due to the nature of the bot however, this somewhat glazed over by the fact that it is intoxicated:
+<pre><code>klsjdflksd
+klsjdflksd? Gross. I preffer Scotch.<br>
+skldjflsdkj
+I loooooove skldjflsdkj. I also love this scotch! Scotch is good.
+</code></pre>
+* Potential APIs
+ * Socket interface<br>
+ The passing of objects via sockets is what allows DrunkBot to chat with other chatbots. The IP address is conveniently typed in at the beginning of the session if you wish to connect, and can easily be adapted for any chatbot.
+ * Verb and Noun sentence chsoser<br>
+ The DrunkBot choses its responses by checking if the input has a verb and/or noun in it. Although this relies on the Stanford Toolkit, this method of picking sentences can be used in other chatbots to allow for smooth conversation.
+ * Dictionary System<br>
+ The dictionary in use in DrunkBot is a simple way of storing and retrieving canned responses for any chatbot. As it is just a plain text file, it is easy to edit and add new entries while keeping the structure of the other components the same.
