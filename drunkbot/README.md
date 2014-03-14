@@ -227,3 +227,86 @@ CLIENT: Maybe next time I'll think your mom.... hue hue hue hueeeeeeee.
  * Level 1:
  ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/Level1.png)
  The more detailed level 1 dataflow above shows the inner workings of Drunkbot. The user can enter input into the console which will then be read by the bot. Alternatively, input in the form of objects can be accepted from a server bot. The input is then checked against the canned responses. These are pulled from the dictionary file, and if the string is matched up the coresponding response will be sent to the console (and the server if need be). If no canned response exists, the input is passed into the parts of speach tagger. There, the different parts of speach are tagged and sent off to be checked for a question. A sentence is then chosen based on its verb and noun status (if they exist within the input) and weather it is a question. The response is constructed and then sent off to the console (and the server via socket if need be) in the form of a string. While this process can be rather confusing at first, it provides a great modular system into which new peices can be added.
+
+* GitHub graphs<br>Commits:
+  ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/commits.png)
+  As the assignment 3 additions have been an individual exercise, committing was not as frequent as when working in a group. Many of the commits were made during the final documentation stage to GitHub, as an internal versioning system was used for different software features.
+  <br>Punchcard:
+  ![alt tag](https://raw.github.com/czechmate777/assignment3/master/drunkbot/punchcard.png)
+  This graph provides a good overview of what times commits were made. Most were made during breaks between or after classes. For example, on friday at around 1PM, sockets were were being tested with another classmate and the coresponding documentation was committed.
+
+* Sample conversation:
+<pre><code>Heyyy, how you doin'?
+Alright
+that's nice but i don't really care.<br>
+You aren't being very nice...
+OMG! being is something I want to get into!<br>
+What's your name?
+i am drunkbot, the one and only.<br>
+So you're a computer?
+HA! YOU ARE A FUNNY BUGGER AREN'T YOU! HA HA HA HA<br>
+Well you are called DrunkBot so...
+Whaaa, what? You talking to me?<br
+yes!
+I could really use another drink.. or two.<br>
+Okay, here.
+So.. do you have any plans for the weekend?<br>
+Yeah. I want to go biking, but it's supposed to rain.
+Such biking. Very rain. Wow.<br>
+You spend too much time on the internet.
+I... what? What do you mean by spend and internet?<br>
+I guess you can't really spend time on the internet, it just takes it away.
+HA! YOU ARE A FUNNY BUGGER AREN'T YOU! HA HA HA HA<br>
+I like to think so.
+Well fine then.<br>
+What's your favorite movie?
+you know that one with the girl? she has the hair and that walk.. yeah.<br>
+no
+then you should buy me a drink!<br>
+You've had enough.
+Computers don't often had, do they?<br>
+I don't know, I guess not.
+I don't really guess anymore... Sorry<br>
+okay.
+I... what? What do you mean by that?<br>
+okay
+fine.<br>
+Who's your favorite actress?
+i like judi dench. it's too bad she had to die in james bond.<br>
+yeah it is. But such is life.
+Such life. Very is. Wow.<br>
+I don't even
+i'm a peacock, you gotta let me fly!<br>
+really?
+Of course not!<br>
+haha
+got the giggles?<br>
+Totally.
+So.. do you have any plans for the weekend?<br>
+You already asked that.
+You really need to try asked. It goes great with scotch.<br>
+Whatever you say.
+OMG! say is something I want to get into!<br>
+Are you okay to drive?
+i'm not even okay to walk, so what do you think?<br>
+Okay
+fine.<br>
+How old are you?
+how old do you want me to be?<br>
+What are you saying?
+You really need to try saying. It goes great with scotch.<br>
+Are you drunk?
+naaa<br>
+We should get you home.
+I also like to get home when I drink.<br>
+give me your keys
+how about another drink?<br>
+no way, come on.
+*blank stare*<br>
+Come on, man.
+I think it is time for me to go.<br>
+Finally.
+Goodbye.<br>
+*Falls off chair*
+</code></pre>
+  
