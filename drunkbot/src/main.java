@@ -83,6 +83,7 @@ public class main {
 		}
 		else {
 			//greet user
+			System.out.println("-----------------------------------------");
 			System.out.println("Heyyy, how you doin'?");
 
 			//get input
