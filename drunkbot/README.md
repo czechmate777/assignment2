@@ -191,18 +191,18 @@ There are many other responses that DrunkBot can easily peice together, which re
  * **POS tagging - Stanford toolkit (10 points)**<br>
   Parts of speech tagging was implemented using the Stanford toolkit, available here: http://nlp.stanford.edu/software/tagger.shtml. This allows DrunkBot to identify and use different parts of speech from the user's input. More specifically, DrunkBot pulls a verb and noun from the user's input and based on these will respond accordingly. Though the correct parts extracted from the input phrase, DrunkBot does not conjugate the verb to fit correctly into the response sentence. This can result in some interesting results, but more often than not just sounds drunkenly.
  Tagging Sample with relevant words that are carried over to the response in **bold**:
-<pre><code>input   > I like **jumping** around often.
-response> I loooooove **jumping**. I also love this scotch! Scotch is good.<br/>
-input   > This **beer** is really great!
-response> Oh yeah, absolutely. What do you think of **beer**?<br/>
-input   > How often do you **run**?
-response> You really need to try **run**. It goes great with scotch.<br/>
-input   > Did you just **eat** that **napkin**?
-response> I... what? What do you mean by **eat** and **napkin**?<br/>
-input   > This **place** **is** really cold
-response> Such **place**. Very **is**. Wow.<br/>
-input   > Maybe we should **go** somewhere else
-response> You really need to try **go**. It goes great with scotch.
+<pre><code>input   > I like <b>jumping</b> around often.
+response> I loooooove <b>jumping</b>. I also love this scotch! Scotch is good.<br/>
+input   > This <b>beer</b> is really great!
+response> Oh yeah, absolutely. What do you think of <b>beer</b>?<br/>
+input   > How often do you <b>run</b>?
+response> You really need to try <b>run</b>. It goes great with scotch.<br/>
+input   > Did you just <b>eat</b> that <b>napkin</b>?
+response> I... what? What do you mean by <b>eat</b> and <b>napkin</b>?<br/>
+input   > This <b>place</b> <b>is</b> really cold
+response> Such <b>place</b>. Very <b>is</b>. Wow.<br/>
+input   > Maybe we should <b>go</b> somewhere else
+response> You really need to try <b>go</b>. It goes great with scotch.
 </code></pre>
 
  * **Sockets (15 points)**<br>
