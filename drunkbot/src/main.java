@@ -64,7 +64,7 @@ public class main {
 
 			FileOutputStream outputStream = new FileOutputStream("dictionary.txt");
 			try {
-				DbxEntry.File downloadedFile = client.getFile("/dictionar.txt", null,
+				DbxEntry.File downloadedFile = client.getFile("/dictionary.txt", null,
 						outputStream);
 				System.out.println("Metadata: " + downloadedFile.toString());
 			} 
