@@ -31,7 +31,8 @@ public class main {
 	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException {
 
 		// DropBox stuff =========================================================
-		System.out.println("*Use Dropbox to get most recient dictionary? <yes/no> *\nPlease note, file must already be present.");
+		System.out.println("* Use Dropbox to get most recient dictionary?"
+				+ "\n* Please note, file must already be present. <yes/no>");
 		boolean dbx = scan.nextLine().toLowerCase().equals("yes");
 		if (dbx){
 			final String APP_KEY = "fh14a40tk1ntjpw";
@@ -44,15 +45,15 @@ public class main {
 			DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
 
 			String authorizeUrl = webAuth.start();
-			System.out.println("1. Openning URL: " + authorizeUrl);
+			System.out.println("	1. Openning URL: " + authorizeUrl);
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			browse(authorizeUrl);
-			System.out.println("2. Click \"Allow\" (you might have to log in first)");
-			System.out.println("3. Copy the authorization code and paste it below.");
+			System.out.println("	2. Click \"Allow\" (you might have to log in first)");
+			System.out.println("	3. Copy the authorization code and paste it below.");
 			String code = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
 
 			DbxAuthFinish authFinish = webAuth.finish(code);
@@ -63,10 +64,14 @@ public class main {
 
 			FileOutputStream outputStream = new FileOutputStream("dictionary.txt");
 			try {
-				DbxEntry.File downloadedFile = client.getFile("/dictionary.txt", null,
+				DbxEntry.File downloadedFile = client.getFile("/dictionar.txt", null,
 						outputStream);
 				System.out.println("Metadata: " + downloadedFile.toString());
 			} 
+			catch(NullPointerException e){
+				System.out.println("Error: the file \"Dictionary.txt\" was not found in you DropBox folder."
+						+ " \n	Continuing with default file.");
+			}
 			finally {
 				outputStream.close();
 			}
