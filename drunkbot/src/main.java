@@ -92,7 +92,7 @@ public class main {
 		translator = Translator.getInstance();
 		transLang = scan.nextLine().toLowerCase().equals("yes");
 		if(transLang){
-			System.out.print("Enter your languagecode (ex. en, es, fr, ect...): ");
+			System.out.print("Enter your language code (ex: en, es, fr, etc...): ");
 			lang = scan.nextLine().toLowerCase();
 		}
 		else {
