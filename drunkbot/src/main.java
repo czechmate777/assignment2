@@ -1,7 +1,11 @@
 import java.util.*;
+import java.awt.Desktop;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.URI;
+
+import com.dropbox.core.*;
 
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
@@ -20,12 +24,56 @@ public class main {
 
 	public static Scanner scan = new Scanner(System.in);
 
-	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException {
+	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException {
 
+		// DropBox stuff ----------------------------------------------
+		System.out.println("*Use Dropbox to get most recient dictionary? <yes/no> *");
+		boolean dbx = scan.nextLine().toLowerCase().equals("yes");
+		if (dbx){
+			final String APP_KEY = "fh14a40tk1ntjpw";
+			final String APP_SECRET = "yhte0plmdfq52rw";
+
+			DbxAppInfo appInfo = new DbxAppInfo(APP_KEY, APP_SECRET);
+
+			DbxRequestConfig config = new DbxRequestConfig(
+					"DrunkBot/1.0", Locale.getDefault().toString());
+			DbxWebAuthNoRedirect webAuth = new DbxWebAuthNoRedirect(config, appInfo);
+
+			String authorizeUrl = webAuth.start();
+			System.out.println("1. Openning URL: " + authorizeUrl);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			browse(authorizeUrl);
+			System.out.println("2. Click \"Allow\" (you might have to log in first)");
+			System.out.println("3. Copy the authorization code and paste it below.");
+			String code = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
+
+			//This is the code response: c7uQZqfTfycAAAAAAAAAARzcOF3ijemjPRqmejKs798
+
+			DbxAuthFinish authFinish = webAuth.finish(code);
+			String accessToken = authFinish.accessToken;
+
+			DbxClient client = new DbxClient(config, accessToken);
+			System.out.println("Linked account: " + client.getAccountInfo().displayName);
+
+			FileOutputStream outputStream = new FileOutputStream("dictionary.txt");
+			try {
+				DbxEntry.File downloadedFile = client.getFile("/dictionary.txt", null,
+						outputStream);
+				System.out.println("Metadata: " + downloadedFile.toString());
+			} 
+			finally {
+				outputStream.close();
+			}
+		}
+		// ------------------------------------------------------------
 		InputStream is = new FileInputStream( "en-pos-maxent.bin" );
 		setModel( new POSModel( is ) ); 
 		System.out.println("*Act as client using sockets? <yes/no> *");
-		
+
 		soc = scan.nextLine().toLowerCase().equals("yes");
 		if(soc) {
 
@@ -111,6 +159,17 @@ public class main {
 		}
 
 
+	}
+
+	private static void browse(String Url) {
+		Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+		if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+			try {
+				desktop.browse(new URI(Url));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	//fill dictionary initially with predefined values
