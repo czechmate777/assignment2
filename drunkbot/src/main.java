@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.net.URI;
 
 import com.dropbox.core.*;
+import com.gtranslate.Language;
+import com.gtranslate.Translator;
 
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
@@ -15,7 +17,9 @@ public class main {
 
 	//parts of speech model
 	private static POSModel model;
-
+	private static Translator translator;
+	private static String lang;
+	private static boolean transLang;
 	private static DictSkipList<String, String> dictionary;
 	private static boolean soc;
 	private DictSkipList<String, String> getDict() {
@@ -26,8 +30,8 @@ public class main {
 
 	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException {
 
-		// DropBox stuff ----------------------------------------------
-		System.out.println("*Use Dropbox to get most recient dictionary? <yes/no> *");
+		// DropBox stuff =========================================================
+		System.out.println("*Use Dropbox to get most recient dictionary? <yes/no> *\nPlease note, file must already be present.");
 		boolean dbx = scan.nextLine().toLowerCase().equals("yes");
 		if (dbx){
 			final String APP_KEY = "fh14a40tk1ntjpw";
@@ -51,8 +55,6 @@ public class main {
 			System.out.println("3. Copy the authorization code and paste it below.");
 			String code = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
 
-			//This is the code response: c7uQZqfTfycAAAAAAAAAARzcOF3ijemjPRqmejKs798
-
 			DbxAuthFinish authFinish = webAuth.finish(code);
 			String accessToken = authFinish.accessToken;
 
@@ -69,21 +71,40 @@ public class main {
 				outputStream.close();
 			}
 		}
-		// ------------------------------------------------------------
-		InputStream is = new FileInputStream( "en-pos-maxent.bin" );
-		setModel( new POSModel( is ) ); 
+		// =======================================================================
+		
+		// Check for sockets =====================================================
 		System.out.println("*Act as client using sockets? <yes/no> *");
-
 		soc = scan.nextLine().toLowerCase().equals("yes");
+		if (soc){
+			InputStream is = new FileInputStream( "en-pos-maxent.bin" );
+			setModel( new POSModel( is ) ); 
+		}
+		// =======================================================================
+		
+		// Translation set up ====================================================
+		System.out.println("Do you wish to converse in another language? <yes/no>");
+		translator = Translator.getInstance();
+		transLang = scan.nextLine().toLowerCase().equals("yes");
+		if(transLang){
+			System.out.print("Enter your languagecode (ex. en, es, fr, ect...): ");
+			lang = scan.nextLine().toLowerCase();
+		}
+		else {
+			lang = "en";
+		}
+		// =======================================================================
+		
+		
 		if(soc) {
 
 			//get the localhost IP address, if server is running on some other IP, you need to use that
-			System.out.print("Please enter server IP address: ");
+			printLine("Please enter server IP address: ");
 			InetAddress host = InetAddress.getByName(scan.nextLine());
 			Socket socket = null;
 			ObjectOutputStream oos = null;
 			ObjectInputStream ois = null;
-			System.out.println("Trying to connect to server...");
+			printLine("Trying to connect to server...");
 			//establish socket connection to server
 			socket = new Socket(host.getHostName(), 2014);
 
@@ -97,11 +118,11 @@ public class main {
 			System.out.println("-----------------------------------------");
 			String greeting = "Heyyy, how you doin'?";
 			oos.writeObject(greeting);
-			System.out.println("CLIENT: " + greeting);
+			printLine("CLIENT: " + greeting);
 
 			//get input
 			String input = (String) ois.readObject();
-			System.out.println("SERVER: " + input);
+			printLine("SERVER: " + input);
 			//get dictionary
 			dictionary = new DictSkipList<String, String>();
 
@@ -113,26 +134,26 @@ public class main {
 			{
 				response = response(input);
 				oos.writeObject(response);
-				System.out.println("CLIENT: " + response);
+				printLine("CLIENT: " + response);
 				input = (String) ois.readObject();
-				System.out.println("SERVER: " + input + "\n");
+				printLine("SERVER: " + input + "\n");
 				counter++;
 			}
 			response = "I think it is time for me to go."; 
 			oos.writeObject(response);
-			System.out.println("CLIENT: " + response + "\n");
+			printLine("CLIENT: " + response + "\n");
 
 			input = (String) ois.readObject();
-			System.out.println("SERVER: " + input);	  
+			printLine("SERVER: " + input);	  
 			response = "Goodbye.\n*Falls off chair*";
 			oos.writeObject(response);
-			System.out.println("CLIENT: " + response);
+			printLine("CLIENT: " + response);
 
 		}
 		else {
 			//greet user
 			System.out.println("-----------------------------------------");
-			System.out.println("Heyyy, how you doin'?");
+			printLine("Heyyy, how you doin'?");
 
 			//get input
 			String input = scan.nextLine();
@@ -151,10 +172,10 @@ public class main {
 				input = scan.nextLine();
 				counter++;
 			}
-			System.out.println("I think it is time for me to go.\n");
+			printLine("I think it is time for me to go.");
 			input = scan.nextLine();
 
-			System.out.println("Goodbye.\n*Falls off chair*");
+			printLine("Goodbye... -Falls off chair-");
 
 		}
 
@@ -172,6 +193,16 @@ public class main {
 		}
 	}
 
+	// Custom printer for other language
+	private static void printLine(String str){
+		if (lang.equals("en")){
+			System.out.println(str);
+		}
+		else {
+			System.out.println(translator.translate(str, "en", lang));
+		}
+	}
+	
 	//fill dictionary initially with predefined values
 	public static void fillDictionary(DictSkipList<String, String> dictionary) throws FileNotFoundException {
 		FileInputStream in = new FileInputStream("dictionary.txt");
@@ -202,10 +233,15 @@ public class main {
 
 	//generate chatbot response
 	public static String response(String input) throws InvalidFormatException, IOException {
-
+		if(transLang){
+			input = translator.translate(input, lang, "en");
+		}
 		//check for dictionary, no punctuation
 		if (dictionary.containsKey(input.toLowerCase()))
 		{
+			if (transLang){
+				return translator.translate(dictionary.get(input.toLowerCase()), "en", lang);
+			}
 			return dictionary.get(input.toLowerCase());
 		}
 
@@ -215,6 +251,9 @@ public class main {
 
 		String[] verbNoun = parse.getVerbNoun(input);
 		String str = construct(verbNoun[0], verbNoun[1], input);
+		if (transLang){
+			return translator.translate(str, "en", lang);
+		}
 		return str;
 	}
 
