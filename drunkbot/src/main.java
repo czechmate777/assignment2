@@ -4,17 +4,24 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URI;
-
+// DropBox
 import com.dropbox.core.*;
+// Twitter
+import net.unto.twitter.Api;
+import net.unto.twitter.TwitterProtos.Status;
+// Google Translate
 import com.gtranslate.Language;
 import com.gtranslate.Translator;
-
+// POS
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.util.InvalidFormatException;
 
 public class main {
 
+	// Twitter API
+	private static Api twitterApi;
+	
 	//parts of speech model
 	private static POSModel model;
 	private static Translator translator;
@@ -22,6 +29,7 @@ public class main {
 	private static boolean transLang;
 	private static DictSkipList<String, String> dictionary;
 	private static boolean soc;
+	private static boolean twitter;
 	private DictSkipList<String, String> getDict() {
 		return dictionary;
 	}
@@ -75,6 +83,17 @@ public class main {
 			finally {
 				outputStream.close();
 			}
+		}
+		// =======================================================================
+		
+		// Twitter stuff =========================================================
+		System.out.println("* Use twitter to get updates? <yes/no> *");
+		twitter = scan.nextLine().toLowerCase().equals("yes");
+		if (twitter){
+			twitterApi = Api.builder().build();
+			for (Status status : twitterApi.publicTimeline().build().get()) {
+			    System.out.println(String.format("%s wrote '%s'", status.getUser().getName(), status.getText()));
+			  }
 		}
 		// =======================================================================
 		
