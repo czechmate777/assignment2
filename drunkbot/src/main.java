@@ -4,43 +4,49 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URI;
+
+
+
 // DropBox
 import com.dropbox.core.*;
+
 // Twitter
-import net.unto.twitter.Api;
-import net.unto.twitter.TwitterProtos.Status;
-// Google Translate
-import com.gtranslate.Language;
+import twitter4j.*;
+
 import com.gtranslate.Translator;
+
+// Wolfram
+import com.wolfram.alpha.*;
+
 // POS
 import opennlp.tools.postag.POSModel;
-import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.util.InvalidFormatException;
 
 public class main {
-
-	// Twitter API
-	private static Api twitterApi;
-	
-	//parts of speech model
+	// parts of speech model
 	private static POSModel model;
+	// Wolfram
+	private static WAEngine engine;
+	// Translator
 	private static Translator translator;
 	private static String lang;
 	private static boolean transLang;
+	// Dictionary
 	private static DictSkipList<String, String> dictionary;
+	// Socket
 	private static boolean soc;
-	private static boolean twitter;
+	// Twitter
+	private static Twitter twitter;
 	private DictSkipList<String, String> getDict() {
 		return dictionary;
 	}
-
 	public static Scanner scan = new Scanner(System.in);
 
-	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException {
+	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException, TwitterException {
 
 		// DropBox stuff =========================================================
 		System.out.println("* Use Dropbox to get most recient dictionary?"
-				+ "\n* Please note, file must already be present. <yes/no>");
+				+ "\n  Please note, file must already be present. <yes/no>");
 		boolean dbx = scan.nextLine().toLowerCase().equals("yes");
 		if (dbx){
 			final String APP_KEY = "fh14a40tk1ntjpw";
@@ -85,20 +91,28 @@ public class main {
 			}
 		}
 		// =======================================================================
-		
-		// Twitter stuff =========================================================
-		System.out.println("* Use twitter to get updates? <yes/no> *");
-		twitter = scan.nextLine().toLowerCase().equals("yes");
-		if (twitter){
-			twitterApi = Api.builder().build();
-			for (Status status : twitterApi.publicTimeline().build().get()) {
-			    System.out.println(String.format("%s wrote '%s'", status.getUser().getName(), status.getText()));
-			  }
-		}
+
+		// Wolfram initialization ================================================
+		System.out.println("* Initializing Wolfram Alpha");
+		engine = new WAEngine();
+		engine.setAppID("RGEXLG-7W9LUJU47E");
+		engine.addFormat("plaintext");
 		// =======================================================================
-		
+
+		// Twitter stuff =========================================================
+		System.out.println("* Connecting to twitter");
+		twitter = TwitterFactory.getSingleton();
+		// =======================================================================
+
+		Twitter twitter = TwitterFactory.getSingleton();
+		Query query = new Query("#UBCO");
+		QueryResult result = twitter.search(query);
+		for (Status status : result.getTweets()) {
+			System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+		}
+
 		// Check for sockets =====================================================
-		System.out.println("*Act as client using sockets? <yes/no> *");
+		System.out.println("* Act as client using sockets? <yes/no> *");
 		soc = scan.nextLine().toLowerCase().equals("yes");
 		if (soc){
 			InputStream is = new FileInputStream( "en-pos-maxent.bin" );
@@ -107,18 +121,21 @@ public class main {
 		// =======================================================================
 		
 		// Translation set up ====================================================
-		System.out.println("Do you wish to converse in another language? <yes/no>");
+		System.out.println("* Do you wish to converse in another language? <yes/no>");
 		translator = Translator.getInstance();
 		transLang = scan.nextLine().toLowerCase().equals("yes");
 		if(transLang){
-			System.out.print("Enter your language code (ex: en, es, fr, etc...): ");
+			System.out.print("  Enter your language code (ex: en, es, fr, etc...): ");
 			lang = scan.nextLine().toLowerCase();
 		}
 		else {
 			lang = "en";
 		}
 		// =======================================================================
-		
+
+		//////////////////////////////////////////////////////////////////////////
+		//                          Main Execution                              //
+		//////////////////////////////////////////////////////////////////////////
 		
 		if(soc) {
 
@@ -206,6 +223,7 @@ public class main {
 
 	}
 
+	// Browse - opens given URL in default browser ===========================
 	private static void browse(String Url) {
 		Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
 		if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -216,7 +234,55 @@ public class main {
 			}
 		}
 	}
-
+	// =======================================================================
+	
+	// WolframAlpha Query - returns Wolfram result for query =================
+		private static void wfaQuery(String input) {
+			WAQuery query = engine.createQuery();
+			query.setInput(input);
+			try {
+	            // For educational purposes, print out the URL we are about to send:
+	            System.out.println("Query URL:");
+	            System.out.println(engine.toURL(query));
+	            System.out.println("");
+	            
+	            // This sends the URL to the Wolfram|Alpha server, gets the XML result
+	            // and parses it into an object hierarchy held by the WAQueryResult object.
+	            WAQueryResult queryResult = engine.performQuery(query);
+	            
+	            if (queryResult.isError()) {
+	                System.out.println("Query error");
+	                System.out.println("  error code: " + queryResult.getErrorCode());
+	                System.out.println("  error message: " + queryResult.getErrorMessage());
+	            } else if (!queryResult.isSuccess()) {
+	                System.out.println("Query was not understood; no results available.");
+	            } else {
+	                // Got a result.
+	                System.out.println("Successful query. Pods follow:\n");
+	                for (WAPod pod : queryResult.getPods()) {
+	                    if (!pod.isError()) {
+	                        System.out.println(pod.getTitle());
+	                        System.out.println("------------");
+	                        for (WASubpod subpod : pod.getSubpods()) {
+	                            for (Object element : subpod.getContents()) {
+	                                if (element instanceof WAPlainText) {
+	                                    System.out.println(((WAPlainText) element).getText());
+	                                    System.out.println("");
+	                                }
+	                            }
+	                        }
+	                        System.out.println("");
+	                    }
+	                }
+	                // We ignored many other types of Wolfram|Alpha output, such as warnings, assumptions, etc.
+	                // These can be obtained by methods of WAQueryResult or objects deeper in the hierarchy.
+	            }
+	        } catch (WAException e) {
+	            e.printStackTrace();
+	        }
+		}
+	// =======================================================================
+	
 	// Custom printer for other language
 	private static void printLine(String str){
 		if (lang.equals("en")){
@@ -226,7 +292,7 @@ public class main {
 			System.out.println(translator.translate(str, "en", lang));
 		}
 	}
-	
+
 	//fill dictionary initially with predefined values
 	public static void fillDictionary(DictSkipList<String, String> dictionary) throws FileNotFoundException {
 		FileInputStream in = new FileInputStream("dictionary.txt");
@@ -255,8 +321,9 @@ public class main {
 		return model;
 	}
 
-	//generate chatbot response
+	// Generate DrunkBot response
 	public static String response(String input) throws InvalidFormatException, IOException {
+		// Translates to English
 		if(transLang){
 			input = translator.translate(input, lang, "en");
 		}
@@ -268,7 +335,11 @@ public class main {
 			}
 			return dictionary.get(input.toLowerCase());
 		}
-
+		if (input.toLowerCase().contains("solve")){
+			printLine("What would you like to solve? I know a guy called Wolfram.");
+			wfaQuery(scan.nextLine());
+			return "";
+		}
 		//generate verb/noun response
 		InputStream is = new FileInputStream( "en-pos-maxent.bin" );
 		inputParser parse = new inputParser(is);
