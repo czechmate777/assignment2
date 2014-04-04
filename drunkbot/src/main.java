@@ -7,6 +7,7 @@ import java.net.URI;
 
 
 
+
 // DropBox
 import com.dropbox.core.*;
 
@@ -92,25 +93,6 @@ public class main {
 		}
 		// =======================================================================
 
-		// Wolfram initialization ================================================
-		System.out.println("* Initializing Wolfram Alpha");
-		engine = new WAEngine();
-		engine.setAppID("RGEXLG-7W9LUJU47E");
-		engine.addFormat("plaintext");
-		// =======================================================================
-
-		// Twitter stuff =========================================================
-		System.out.println("* Connecting to twitter");
-		twitter = TwitterFactory.getSingleton();
-		// =======================================================================
-
-		Twitter twitter = TwitterFactory.getSingleton();
-		Query query = new Query("#UBCO");
-		QueryResult result = twitter.search(query);
-		for (Status status : result.getTweets()) {
-			System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
-		}
-
 		// Check for sockets =====================================================
 		System.out.println("* Act as client using sockets? <yes/no> *");
 		soc = scan.nextLine().toLowerCase().equals("yes");
@@ -119,7 +101,7 @@ public class main {
 			setModel( new POSModel( is ) ); 
 		}
 		// =======================================================================
-		
+
 		// Translation set up ====================================================
 		System.out.println("* Do you wish to converse in another language? <yes/no>");
 		translator = Translator.getInstance();
@@ -133,10 +115,22 @@ public class main {
 		}
 		// =======================================================================
 
-		//////////////////////////////////////////////////////////////////////////
-		//                          Main Execution                              //
-		//////////////////////////////////////////////////////////////////////////
+		// Wolfram initialization ================================================
+		System.out.println("* Initializing Wolfram Alpha\n	-- use \"solve\" to query");
+		engine = new WAEngine();
+		engine.setAppID("RGEXLG-7W9LUJU47E");
+		engine.addFormat("plaintext");
+		// =======================================================================
+
+		// Twitter stuff =========================================================
+		System.out.println("* Connecting to twitter\n	-- use \"ubco\" to get results");
+		twitter = TwitterFactory.getSingleton();
+		// =======================================================================
 		
+		//////////////////////////////////////////////////////////////////////////
+		//                           Main Execution                             //
+		//////////////////////////////////////////////////////////////////////////
+
 		if(soc) {
 
 			//get the localhost IP address, if server is running on some other IP, you need to use that
@@ -235,54 +229,49 @@ public class main {
 		}
 	}
 	// =======================================================================
-	
+
 	// WolframAlpha Query - returns Wolfram result for query =================
-		private static void wfaQuery(String input) {
-			WAQuery query = engine.createQuery();
-			query.setInput(input);
-			try {
-	            // For educational purposes, print out the URL we are about to send:
-	            System.out.println("Query URL:");
-	            System.out.println(engine.toURL(query));
-	            System.out.println("");
-	            
-	            // This sends the URL to the Wolfram|Alpha server, gets the XML result
-	            // and parses it into an object hierarchy held by the WAQueryResult object.
-	            WAQueryResult queryResult = engine.performQuery(query);
-	            
-	            if (queryResult.isError()) {
-	                System.out.println("Query error");
-	                System.out.println("  error code: " + queryResult.getErrorCode());
-	                System.out.println("  error message: " + queryResult.getErrorMessage());
-	            } else if (!queryResult.isSuccess()) {
-	                System.out.println("Query was not understood; no results available.");
-	            } else {
-	                // Got a result.
-	                System.out.println("Successful query. Pods follow:\n");
-	                for (WAPod pod : queryResult.getPods()) {
-	                    if (!pod.isError()) {
-	                        System.out.println(pod.getTitle());
-	                        System.out.println("------------");
-	                        for (WASubpod subpod : pod.getSubpods()) {
-	                            for (Object element : subpod.getContents()) {
-	                                if (element instanceof WAPlainText) {
-	                                    System.out.println(((WAPlainText) element).getText());
-	                                    System.out.println("");
-	                                }
-	                            }
-	                        }
-	                        System.out.println("");
-	                    }
-	                }
-	                // We ignored many other types of Wolfram|Alpha output, such as warnings, assumptions, etc.
-	                // These can be obtained by methods of WAQueryResult or objects deeper in the hierarchy.
-	            }
-	        } catch (WAException e) {
-	            e.printStackTrace();
-	        }
+	private static void wfaQuery(String input) {
+		WAQuery query = engine.createQuery();
+		query.setInput(input);
+		try {
+			// This sends the URL to the Wolfram|Alpha server, gets the XML result
+			// and parses it into an object hierarchy held by the WAQueryResult object.
+			WAQueryResult queryResult = engine.performQuery(query);
+
+			if (queryResult.isError()) {
+				System.out.println("Query error");
+				System.out.println("  error code: " + queryResult.getErrorCode());
+				System.out.println("  error message: " + queryResult.getErrorMessage());
+			} else if (!queryResult.isSuccess()) {
+				System.out.println("Query was not understood; no results available.");
+			} else {
+				// Got a result.
+				System.out.println("Successful query. Pods follow:\n");
+				for (WAPod pod : queryResult.getPods()) {
+					if (!pod.isError()) {
+						System.out.println(pod.getTitle());
+						System.out.println("------------");
+						for (WASubpod subpod : pod.getSubpods()) {
+							for (Object element : subpod.getContents()) {
+								if (element instanceof WAPlainText) {
+									System.out.println(((WAPlainText) element).getText());
+									System.out.println("");
+								}
+							}
+						}
+						System.out.println("");
+					}
+				}
+				// We ignored many other types of Wolfram|Alpha output, such as warnings, assumptions, etc.
+				// These can be obtained by methods of WAQueryResult or objects deeper in the hierarchy.
+			}
+		} catch (WAException e) {
+			e.printStackTrace();
 		}
+	}
 	// =======================================================================
-	
+
 	// Custom printer for other language
 	private static void printLine(String str){
 		if (lang.equals("en")){
@@ -322,7 +311,7 @@ public class main {
 	}
 
 	// Generate DrunkBot response
-	public static String response(String input) throws InvalidFormatException, IOException {
+	public static String response(String input) throws InvalidFormatException, IOException, TwitterException {
 		// Translates to English
 		if(transLang){
 			input = translator.translate(input, lang, "en");
@@ -340,6 +329,17 @@ public class main {
 			wfaQuery(scan.nextLine());
 			return "";
 		}
+		if (input.toLowerCase().contains("ubco")){
+			printLine("Here's what's going on at UBCO...");
+			Twitter twitter = TwitterFactory.getSingleton();
+			Query query = new Query("#UBCO");
+			QueryResult result = twitter.search(query);
+			for (Status status : result.getTweets()) {
+				System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+			}
+			return "";
+		}
+
 		//generate verb/noun response
 		InputStream is = new FileInputStream( "en-pos-maxent.bin" );
 		inputParser parse = new inputParser(is);
