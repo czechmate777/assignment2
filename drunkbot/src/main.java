@@ -264,6 +264,7 @@ public class main {
 	private static void flickPic(String query) throws FlickrException{
 		SearchParameters searchParameters = new SearchParameters();
 		searchParameters.setText(query);
+		searchParameters.setSort(SearchParameters.INTERESTINGNESS_DESC);
 		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 0, 0);
 		if (list.toArray().length>0) {
 		Photo photo = list.get(0);
