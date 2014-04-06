@@ -5,7 +5,7 @@ Summary
 -------
  We have decided to implement a chatbot who is somewhat intoxicated but coherent and able to learn from user interaction. This bot will interact with the user based on pre-programmed sentence structures as dynamically generated responses based on user input through the use of natural language processing.
  
- <b>The latest updates by *Adam Miller* are listed at the end of this readme document:</b> <a href="https://github.com/czechmate777/assignment3/blob/master/drunkbot/README.md#assignment-3-updates">Assignment 3</a>
+ <b>The latest updates by *Adam Miller* are listed at the end of this readme document:</b> <a href="https://github.com/czechmate777/assignment3/blob/master/drunkbot/README.md#final-updates">Final Additions</a>
 
 SDLC: Agile with Scrum
 -----------------------------
@@ -335,3 +335,81 @@ I loooooove skldjflsdkj. I also love this scotch! Scotch is good.
  The DrunkBot choses its responses by checking if the input has a verb and/or noun in it. Although this relies on the Stanford Toolkit, this method of picking sentences can be used in other chatbots to allow for smooth conversation.
  * Dictionary System<br>
  The dictionary in use in DrunkBot is a simple way of storing and retrieving canned responses for any chatbot. As it is just a plain text file, it is easy to edit and add new entries while keeping the structure of the other components the same.
+
+
+Final updates:
+--------------
+For the final segment of DrunkBot, several APIs were implemented to create a better experience for the user when conversing with it.
+ * **Dropbox**<br>
+  * Drunkbot uses Dropbox to allow the user to download an up-to-date dictionary file upon starting the program.
+<pre><code>* Use Dropbox to get most recent dictionary?
+  Please note, file must already be present. <yes/no>
+>> yes
+	1. Openning URL: https://www.dropbox.com/1/oauth2/authorize?locale=en_US&client_id=fh14a40tk1ntjpw&response_type=code
+	2. Click "Allow" (you might have to log in first)
+	3. Copy the authorization code and paste it below.
+>> xxxxxxxxxxxxxxxxxxx
+</code></pre>
+This feature feature also easily allows users to use custom dictionaries as well as edit the default dictionary for their desired needs.
+ * **Flickr**<br>
+  * The integration of Flickr lets users quickly view images from Flicker as supplied by DrunkBot.
+<pre><code>>> Show me pictures of cats
+Let me hook you up with my buddy Flickr... (opens external window)
+So what now?
+>> Show me a picture of a sandy beach
+Let me hook you up with my buddy Flickr... (opens external window)
+Alright what now?
+>> That's all thanks.
+thanks? Gross. I preffer Scotch.
+</code></pre>
+DrunkBot is able to recognize the query from a variety of different sentence types, and displays images that are most popular for that search result.
+ * **Google Translate**<br>
+  * DrunkBot can now converse in many different languages flawlessly
+<pre><code>* Do you wish to converse in another language? <yes/no>
+>> yes
+  Enter your language code (ex: en, es, fr, etc...): >> fr
+	-----------------------------------------
+Heyyy 
+>> Bonjour
+yo
+>> Comment allez-vous?
+Je ne ne sont pas vraiment plus ... Désolé
+>> N'avez-vous pas eu beaucoup à boire?
+Eh bien très bien alors.
+</code></pre>
+Because Drunkbot translates the conversation on the fly, all other queries such as viewing images on flickr still work:
+<pre><code>>> Me montrer des photos de plages
+Permettez-moi de vous connecter avec mon copain Flickr ... (opens external window)
+Et maintenant?
+>> oui
+moi aussi.
+</code></pre>
+This system allows for a very flexible environment to work with and expand upon while preserving already completed functions.
+ * **Twitter**<br>
+  * To stay up-to-date with happenings at UBCO, DrunkBot uses the Twitter API to pull the most recent tweets from #UBCO whenever the user uses "UBCO" in their input.
+<pre><code>>> What's up at UBCO?
+Here's what's going on at UBCO...
+@okanagan_rt:RT @DYNRutland: http://t.co/9OQXP8thc3
+invite to the community!  #kelowna #ubco #dynrutland 
+@CastanetNews
+@DYNRutland:http://t.co/9OQXP8thc3
+invite to the community!  #kelowna #ubco #dynrutland 
+@CastanetNews
+@Bryce_Millzer:Team photo for the @runtoendpoverty 2014 at #ubco. Good looking group. #ewb #change @ewb http://t.co/JDGIIHEFRB
+@MaryGoswell:Last minute #UBCO house party with Ali, Dom & randoms. #WithTheGirls #ForTheBoys. #WTGFTB.
+@JoanBottorff:RT @UBCFHSD: Join @IHLCDP for its health symposium: Communities in Motion: Healthy kids for better futures Apr 7 http://t.co/vZTNyG7y3S #UB…
+@sidhu117:will_sparks killing it at #RECESS2014. Congrats to larich59 for throwing the biggest party in #ubco… http://t.co/MpBZoFENB1
+...
+</code></pre>
+DrunkBot can then use the content of some tweets to use in its conversation with the user.
+ * **Wolfram Alpha**<br>
+  * The integration of Wolfram Alpha into drunkbot allows it to solve very complex problems. This function is triggered by the use of "solve" in the input, after which DrunkBot will request a query.
+<pre><code>>> Could you solve something for me?
+What would you like to solve? I know a guy called Wolfram.
+>> (a+b)/c! where a=2, b=6, c=3
+Successful query. Pods follow:
+  Input interpretation:
+    (a+b)/(c!) where a = 2, b = 6, c = 3
+  Result:
+    4/3~~1.33333
+</code></pre>
