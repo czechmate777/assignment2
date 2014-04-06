@@ -345,9 +345,9 @@ For the final segment of DrunkBot, several APIs were implemented to create a bet
 <pre><code>* Use Dropbox to get most recent dictionary?
   Please note, file must already be present. <yes/no>
 >> yes
-	1. Openning URL: https://www.dropbox.com/1/oauth2/authorize?locale=en_US&client_id=fh14a40tk1ntjpw&response_type=code
-	2. Click "Allow" (you might have to log in first)
-	3. Copy the authorization code and paste it below.
+Openning URL: https://www.dropbox.com/1/oauth2/authorize?locale=en_US&client_id=fh14a40tk1ntjpw&response_type=code
+Click "Allow" (you might have to log in first)
+Copy the authorization code and paste it below.
 >> xxxxxxxxxxxxxxxxxxx
 </code></pre>
 This feature feature also easily allows users to use custom dictionaries as well as edit the default dictionary for their desired needs.
