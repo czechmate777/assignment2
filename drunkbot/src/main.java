@@ -8,16 +8,29 @@ import java.net.URI;
 
 
 
+
+
+
 // DropBox
 import com.dropbox.core.*;
 
 // Twitter
 import twitter4j.*;
 
+// Google Translate
 import com.gtranslate.Translator;
 
 // Wolfram
 import com.wolfram.alpha.*;
+// FLickr
+import com.flickr4java.flickr.*;
+import com.flickr4java.flickr.photos.Photo;
+import com.flickr4java.flickr.photos.PhotoList;
+import com.flickr4java.flickr.photos.SearchParameters;
+
+
+
+
 
 // POS
 import opennlp.tools.postag.POSModel;
@@ -26,24 +39,34 @@ import opennlp.tools.util.InvalidFormatException;
 public class main {
 	// parts of speech model
 	private static POSModel model;
+	
 	// Wolfram
 	private static WAEngine engine;
+	
 	// Translator
 	private static Translator translator;
 	private static String lang;
 	private static boolean transLang;
+	
+	// Flickr
+	private static Flickr flickr;
+	
 	// Dictionary
 	private static DictSkipList<String, String> dictionary;
+	
 	// Socket
 	private static boolean soc;
+	
 	// Twitter
 	private static Twitter twitter;
+	
 	private DictSkipList<String, String> getDict() {
 		return dictionary;
 	}
+	// Scanner
 	public static Scanner scan = new Scanner(System.in);
 
-	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException, TwitterException {
+	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, DbxException, TwitterException, FlickrException {
 
 		// DropBox stuff =========================================================
 		System.out.println("* Use Dropbox to get most recient dictionary?"
@@ -123,10 +146,17 @@ public class main {
 		// =======================================================================
 
 		// Twitter stuff =========================================================
-		System.out.println("* Connecting to twitter\n	-- use \"ubco\" to get results");
+		System.out.println("* Connecting to Twitter\n	-- use \"ubco\" to get results");
 		twitter = TwitterFactory.getSingleton();
 		// =======================================================================
-		
+
+		// Flickr Initialization =================================================
+		System.out.println("* Connecting to Flickr\n	-- use \"Show me pictures of ____\" to get results");
+		String flickKey = "a3e2bec53ec7f6d6df91608400eead3f";
+		String flickSec = "62e5d92f34681d70";
+		flickr = new Flickr(flickKey, flickSec, new REST());
+		// =======================================================================
+
 		//////////////////////////////////////////////////////////////////////////
 		//                           Main Execution                             //
 		//////////////////////////////////////////////////////////////////////////
@@ -230,6 +260,20 @@ public class main {
 	}
 	// =======================================================================
 
+	// FlickPic - Displays images relating to query ==========================
+	private static void flickPic(String query) throws FlickrException{
+		SearchParameters searchParameters = new SearchParameters();
+		searchParameters.setText(query);
+		PhotoList<Photo> list = flickr.getPhotosInterface().search(searchParameters, 0, 0);
+		if (list.toArray().length>0) {
+		Photo photo = list.get(0);
+		browse(photo.getUrl());
+		}
+		else {
+			printLine("Sorry, he didn't find any pictures...");
+		}
+	}
+
 	// WolframAlpha Query - returns Wolfram result for query =================
 	private static void wfaQuery(String input) {
 		WAQuery query = engine.createQuery();
@@ -310,8 +354,8 @@ public class main {
 		return model;
 	}
 
-	// Generate DrunkBot response
-	public static String response(String input) throws InvalidFormatException, IOException, TwitterException {
+	// Generate DrunkBot response ============================================
+	public static String response(String input) throws InvalidFormatException, IOException, TwitterException, FlickrException {
 		// Translates to English
 		if(transLang){
 			input = translator.translate(input, lang, "en");
@@ -339,7 +383,22 @@ public class main {
 			}
 			return "";
 		}
-
+		// Check for picture request
+		if (input.length()>22){
+			String query;
+			if (input.toLowerCase().substring(0, 20).equals("show me pictures of ")){
+				query = input.toLowerCase().substring(20, input.length()-1);
+				printLine("Let me hook you up with my buddy Flickr...");
+				flickPic(query);
+				return translator.translate("So what now?", "en", lang);
+			}
+			if (input.toLowerCase().substring(0, 21).equals("show me a picture of ")){
+				query = input.toLowerCase().substring(21, input.length()-1);
+				printLine("Let me hook you up with my buddy Flickr...");
+				flickPic(query);
+				return translator.translate("Alright what now?", "en", lang);
+			}
+		}
 		//generate verb/noun response
 		InputStream is = new FileInputStream( "en-pos-maxent.bin" );
 		inputParser parse = new inputParser(is);
