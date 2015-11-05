@@ -1,4 +1,4 @@
-![alt tag](https://raw.github.com/yarko3/assignment2/master/drunkbot/Logo_small.png)
+![Drunk Bot](https://raw.github.com/czechmate777/cosc310final/master/drunkbot/Logo_small.png)
 
 
 Summary
